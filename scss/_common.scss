@@ -1,0 +1,64 @@
+$text: #0B1436;
+$main-font: 'Noto Sans JP', sans-serif;
+$en-font: "Roboto", sans-serif;
+$content-width: 1060px;
+$sp-content-width: 400px;
+$pc-padding: 40px;
+$sp-padding: 20px;
+
+html{
+  font-family: $main-font;
+  color: $text;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  position: relative;
+  &.fixed{
+    overflow: hidden;
+  }
+}
+
+a{
+  color: $text;
+}
+
+img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.u-en{
+  font-family: $en-font;
+}
+
+.l-wrapper {
+  padding-left: $pc-padding;
+  padding-right: $pc-padding;
+}
+
+.l-inner {
+  width: 100%;
+  margin: 0 auto;
+  max-width: $content-width;
+  position: relative;
+  z-index: 1;
+}
+
+.pc-only {
+  display: block;
+}
+
+.br-pc-only {
+  display: inline;
+}
+
+.sp-only {
+  display: none;
+}
+
+.br-sp-only {
+  display: none;
+}
