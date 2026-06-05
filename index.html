@@ -1737,11 +1737,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-radius: 6px;
       white-space: nowrap;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: none; /* 既定（すべて表示）はバッジなし */
     }
     .job3-badge--rec { background: linear-gradient(135deg, #ff7a3c 0%, #e8590c 100%); }
-    .job3-badge--priv { background: rgba(10,37,71,0.88); display: none; }
-    /* モザイク（非公開）カード：オススメを隠し、非公開を表示 */
-    .pick-list.is-filtered .job3-card.is-mosaic .job3-badge--rec { display: none; }
+    .job3-badge--priv { background: rgba(10,37,71,0.88); }
+    /* カテゴリ絞り込み時のみバッジ表示：該当=オススメ、埋め合わせ=非公開 */
+    .pick-list.is-filtered .job3-card.is-clear .job3-badge--rec { display: inline-block; }
     .pick-list.is-filtered .job3-card.is-mosaic .job3-badge--priv { display: inline-block; }
     .job3-main {
       width: 116px;
