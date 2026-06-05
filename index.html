@@ -2771,40 +2771,63 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .exit-modal.is-open {
       display: flex;
     }
-    .exit-modal-inner {
+    .exit-modal-card {
       position: relative;
-      max-width: 420px;
+      max-width: 380px;
       width: 100%;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
     }
-    .exit-modal-img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    /* 画像内に描かれているXボタン部分の透明クリック領域（閉じる） */
-    .exit-modal-close-area {
+    .exit-modal-x {
       position: absolute;
-      top: 9%;
-      right: 7%;
-      width: 14%;
-      height: 13%;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
+      top: 10px; right: 10px;
       z-index: 2;
-    }
-    /* 赤いCTAボタン部分の透明クリック領域（TimeRex遷移） */
-    .exit-modal-cta-area {
-      position: absolute;
-      left: 7%;
-      right: 7%;
-      top: 68%;
-      height: 11%;
-      display: block;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.28);
+      color: #fff; border: none;
+      font-size: 15px; font-weight: 700;
       cursor: pointer;
-      z-index: 1;
+    }
+    .exit-modal-x:hover { background: rgba(255,255,255,0.45); }
+    .exit-modal-top {
+      background: linear-gradient(135deg, #1565d8 0%, #0a4fb0 100%);
+      color: #fff;
+      padding: 28px 22px 22px;
+      text-align: center;
+    }
+    .exit-modal-copy {
+      font-size: 16px; font-weight: 700; line-height: 1.75; margin: 0 0 16px;
+    }
+    .exit-modal-em {
+      background: #ffe45c; color: #0a2547; font-weight: 900;
+      padding: 1px 5px; border-radius: 4px;
+    }
+    .exit-modal-copy strong { color: #ffe45c; font-weight: 900; }
+    .exit-modal-badges {
+      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    }
+    .exit-modal-badge {
+      background: rgba(255,255,255,0.18); color: #fff;
+      font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px;
+    }
+    .exit-modal-ctas {
+      padding: 18px 18px 20px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .exit-modal-cta {
+      display: block; text-align: center; text-decoration: none;
+      font-size: 15px; font-weight: 800; padding: 14px; border-radius: 999px;
+    }
+    .exit-modal-cta--primary {
+      color: #fff;
+      background: linear-gradient(135deg, #ff7a3c 0%, #e8590c 100%);
+      box-shadow: 0 8px 18px rgba(232,89,12,0.30);
+    }
+    .exit-modal-cta--ghost {
+      color: #0a4fb0; background: #fff; border: 2px solid #0a4fb0;
     }
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -3466,10 +3489,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- EXIT INTENT MODAL -->
 <div class="exit-modal" id="exitModal" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="exit-modal-inner">
-    <img src="images/Modal.png" alt="" class="exit-modal-img">
-    <a href="https://timerex.net/s/satooka-r_288d/25061ec6" target="_blank" rel="noopener" class="exit-modal-cta-area" id="exitModalLink" aria-label="今すぐキャリア面談を調整"></a>
-    <button type="button" class="exit-modal-close-area" id="exitModalClose" aria-label="閉じる"></button>
+  <div class="exit-modal-card">
+    <button type="button" class="exit-modal-x" id="exitModalClose" aria-label="閉じる">✕</button>
+    <div class="exit-modal-top">
+      <p class="exit-modal-copy">ご覧いただいている求人は<span class="exit-modal-em">【広告限定】</span>です。<br>今ページを閉じると、<strong>二度と見られなくなる</strong>可能性があります。</p>
+      <div class="exit-modal-badges">
+        <span class="exit-modal-badge">✓ 非公開求人多数</span>
+        <span class="exit-modal-badge">✓ 年収100万円UPの実績</span>
+      </div>
+    </div>
+    <div class="exit-modal-ctas">
+      <a href="#jobSection" class="exit-modal-cta exit-modal-cta--primary" data-exitcta>求人を見てみる ▶</a>
+      <a href="#entryForm" class="exit-modal-cta exit-modal-cta--ghost" data-exitcta>担当者に無料相談してみる</a>
+    </div>
   </div>
 </div>
 
@@ -3527,6 +3559,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   closeBtn.addEventListener('click', closeModal);
+  // CTA（求人を見てみる／担当者に無料相談）クリックで離脱モーダルを閉じて該当セクションへ
+  document.querySelectorAll('#exitModal [data-exitcta]').forEach(function (cta) {
+    cta.addEventListener('click', closeModal);
+  });
   modal.addEventListener('click', function (e) {
     if (e.target === modal) closeModal();
   });
