@@ -3429,7 +3429,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // EmailJS 設定
   const EMAILJS_PUBLIC_KEY  = "10CH-waUvk1uL5ehs";
   const EMAILJS_SERVICE_ID  = "service_a99wf04";
-  const EMAILJS_TEMPLATE_ID = "template_d7ltcxf";
+  const EMAILJS_TEMPLATE_ID = "template_55uwolq";
 
   if (window.emailjs && typeof window.emailjs.init === 'function') {
     window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
@@ -3502,6 +3502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         timing:       state.answers.timing,  // 転職希望時期（任意）
         area:         state.answers.area,    // 転職希望エリア（任意）
         income:       '',
+        job_id:       '',                    // 下部フォームは求人IDなし（空欄）
         job_category: '',
         birthdate:    state.answers.birth,   // 生年月日
         name:         state.answers.name,    // 名前
