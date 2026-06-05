@@ -1685,7 +1685,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     /* 絞り込み実行時：該当求人をモザイク化 */
-    .pick-list.is-filtered .job3-card {
+    /* 絞り込み時：カード内容はモザイク化、「求人の詳細」ボタンのみ操作可能 */
+    .pick-list.is-filtered .job3-top,
+    .pick-list.is-filtered .job3-tags {
       filter: blur(6px);
       pointer-events: none;
       user-select: none;
@@ -1714,10 +1716,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .job3-gallery {
       flex-shrink: 0;
       width: 116px;
+      align-self: stretch;
+      display: flex;
     }
     .job3-main {
       width: 116px;
-      height: 92px;
+      height: 100%;
+      min-height: 100px;
       object-fit: cover;
       border-radius: 8px;
       display: block;
@@ -1886,7 +1891,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       line-height: 1.45; margin: 0 0 8px;
     }
     .jobd-company { font-size: 14px; font-weight: 800; color: #0a4fb0; filter: blur(5px); user-select: none; width: fit-content; }
-    .jobd-sections { margin: 14px 0 0; padding: 0 18px; }
+    .jobd-sections { margin: 14px 0 0; padding: 0 18px; transition: filter 0.3s; }
+    .jobd-sections.is-locked { filter: blur(6px); user-select: none; pointer-events: none; }
     .jobd-sec { padding: 16px 0; border-top: 1px solid #eef2f8; }
     .jobd-sec:first-child { border-top: none; }
     .jobd-sec dt {
@@ -2917,7 +2923,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- 求人票カード（FVに追加） -->
       <div class="kv-jobs">
-        <div class="kv-jobs-label">求人の一例</div>
+        <div class="kv-jobs-label">ピックアップ求人</div>
         <div class="kv-jobs-scroll">
           <article class="kv-job-card">
             <div class="kv-job-thumb">
@@ -3085,11 +3091,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <!-- 絞り込み時の会員限定バナー -->
-  <div class="pick-lockbar" id="pickLockbar" hidden>
-    <span class="pick-lockbar-lock">🔒</span>
-    <a href="#contact" class="pick-lockbar-btn">詳細はこちらから ▶</a>
-  </div>
 
   <div class="pick-list" id="pickList">
     <!-- Card 1 -->
@@ -3097,11 +3098,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="job3-top">
         <div class="job3-gallery">
           <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 10_59_51.png" alt="株式会社コレックホールディングス">
-          <div class="job3-thumbs">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_19.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_29.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_46_39.png" alt="">
-          </div>
         </div>
         <div class="job3-info">
           <h3 class="job3-title">住宅設備営業｜未経験でも安心の2週間研修・福利厚生充実</h3>
@@ -3129,12 +3125,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <article class="job3-card" data-tags="mikeiken high">
       <div class="job3-top">
         <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 11_02_09 (1).png" alt="新日本住設株式会社">
-          <div class="job3-thumbs">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_39.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_43.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_19.png" alt="">
-          </div>
+          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_57.png" alt="新日本住設株式会社">
         </div>
         <div class="job3-info">
           <h3 class="job3-title">ハウスメーカー営業｜未経験でも理論年収400万円超え・20代で1,000万円</h3>
@@ -3163,11 +3154,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="job3-top">
         <div class="job3-gallery">
           <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 11_02_09 (2).png" alt="株式会社翔陽">
-          <div class="job3-thumbs">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_25.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_46_39.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_19.png" alt="">
-          </div>
         </div>
         <div class="job3-info">
           <h3 class="job3-title">高価買取専門の営業｜完全学歴不問・入社1ヶ月でインセン50万円の実績</h3>
@@ -3195,12 +3181,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <article class="job3-card" data-tags="weekend holiday fukuri">
       <div class="job3-top">
         <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 11_02_10 (3).png" alt="株式会社レオパレス21">
-          <div class="job3-thumbs">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_43.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_52.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_29.png" alt="">
-          </div>
+          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_46_39.png" alt="株式会社レオパレス21">
         </div>
         <div class="job3-info">
           <h3 class="job3-title">賃貸カウンター営業｜賞与平均118万円・3年定着率90%の安定環境</h3>
@@ -3229,11 +3210,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="job3-top">
         <div class="job3-gallery">
           <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 11_02_10 (4).png" alt="大東建託株式会社">
-          <div class="job3-thumbs">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_52.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_57.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_34.png" alt="">
-          </div>
         </div>
         <div class="job3-info">
           <h3 class="job3-title">不動産営業｜未経験・第二新卒歓迎・初年度から年収1,000万円も狙える</h3>
@@ -3262,11 +3238,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="job3-top">
         <div class="job3-gallery">
           <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_52.png" alt="ケイアイスター不動産株式会社">
-          <div class="job3-thumbs">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_57.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_25.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_19.png" alt="">
-          </div>
         </div>
         <div class="job3-info">
           <h3 class="job3-title">不動産営業｜ホワイト企業認定プラチナ・入社2年で年収1,200万円実績</h3>
@@ -3294,12 +3265,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <article class="job3-card" data-tags="mikeiken high">
       <div class="job3-top">
         <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_57.png" alt="大和財託株式会社">
-          <div class="job3-thumbs">
-            <img src="images/ChatGPT Image 2026年5月25日 19_46_39.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_43.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_34.png" alt="">
-          </div>
+          <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 11_02_09 (1).png" alt="大和財託株式会社">
         </div>
         <div class="job3-info">
           <h3 class="job3-title">不動産営業｜完全反響営業・飛び込み&テレアポ一切なしで1,000万円も</h3>
@@ -3327,12 +3293,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <article class="job3-card" data-tags="mikeiken high fukuri">
       <div class="job3-top">
         <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_46_39.png" alt="株式会社貴瞬">
-          <div class="job3-thumbs">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_29.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_39.png" alt="">
-            <img src="images/ChatGPT Image 2026年5月25日 19_45_25.png" alt="">
-          </div>
+          <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 11_02_10 (3).png" alt="株式会社貴瞬">
         </div>
         <div class="job3-info">
           <h3 class="job3-title">高価買取販売の営業｜未経験大歓迎・入社3ヶ月で主任昇格実績あり</h3>
@@ -4082,21 +4043,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // すべて表示・モザイク解除・元の並び順に戻す
         applyOrder(ids);
         list.classList.remove('is-filtered');
-        if (lockbar) lockbar.hidden = true;
         if (locked) locked.hidden = false;
         return;
       }
 
-      // 該当求人だけを「条件ごとの順番」で表示し、モザイク化
+      // 該当求人だけを「カテゴリごとの順番」で表示し、モザイク化（求人の詳細ボタンのみ操作可）
       applyOrder(ids);
       list.classList.add('is-filtered');
-      if (locked) locked.hidden = true;            // 既存のロック済みカードは隠す
-      if (labelEl) labelEl.textContent = LABELS[f] || 'この条件';
-      if (countEl) countEl.textContent = ids.length;
-      if (lockbar) {
-        lockbar.hidden = false;
-        lockbar.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+      if (locked) locked.hidden = true;
+      list.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 })();
@@ -4196,7 +4151,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         `<h2 class="jobd-title">${esc(title)}</h2>` +
         `<div class="jobd-company">${esc(company.trim())}</div>` +
       `</div>` +
-      `<dl class="jobd-sections">` +
+      `<dl class="jobd-sections is-locked" id="jobdSections">` +
         `<div class="jobd-sec"><dt>会社概要</dt><dd>${esc(data.overview || '※詳細は面談でご案内します。')}</dd></div>` +
         `<div class="jobd-sec"><dt>年収レンジ</dt><dd class="jobd-salary">${esc(salary)}</dd></div>` +
         `<div class="jobd-sec"><dt>仕事内容</dt><dd>${esc(data.content || '※詳細は面談でご案内します。')}</dd></div>` +
@@ -4260,8 +4215,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       submitBtn.disabled = true;
       submitBtn.textContent = '送信中...';
       const done = () => {
+        // 送信完了 → 詳細のモザイクを解除して公開
+        const sec = document.getElementById('jobdSections');
+        if (sec) sec.classList.remove('is-locked');
+        const comp = document.querySelector('.jobd-company');
+        if (comp) { comp.style.filter = 'none'; comp.style.userSelect = 'auto'; }
         const f = document.getElementById('jobdForm');
-        if (f) f.innerHTML = '<div class="jobd-thanks">ご登録ありがとうございます！<br>担当者より、この求人の詳細をご連絡いたします。</div>';
+        if (f) f.innerHTML = '<div class="jobd-thanks">✅ 求人詳細を公開しました！<br>担当者からも詳しくご連絡いたします。</div>';
+        const sc = document.getElementById('jobModalBody');
+        if (sc) sc.scrollTo({ top: 0, behavior: 'smooth' });
       };
       if (window.emailjs && typeof window.emailjs.send === 'function') {
         window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params).then(done).catch(() => {
