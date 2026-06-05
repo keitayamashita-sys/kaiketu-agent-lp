@@ -1890,9 +1890,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size: 18px; font-weight: 800; color: #0a2547;
       line-height: 1.45; margin: 0 0 8px;
     }
-    .jobd-company { font-size: 14px; font-weight: 800; color: #0a4fb0; filter: blur(5px); user-select: none; width: fit-content; }
+    .jobd-company { font-size: 14px; font-weight: 800; color: #0a4fb0; width: fit-content; transition: filter 0.3s; }
     .jobd-sections { margin: 14px 0 0; padding: 0 18px; transition: filter 0.3s; }
-    .jobd-sections.is-locked { filter: blur(6px); user-select: none; pointer-events: none; }
+    /* カテゴリ絞り込み中に開いた詳細のみモザイク（送信完了で解除） */
+    .jobd-detail.is-locked .jobd-company,
+    .jobd-detail.is-locked .jobd-sections { filter: blur(6px); user-select: none; pointer-events: none; }
     .jobd-sec { padding: 16px 0; border-top: 1px solid #eef2f8; }
     .jobd-sec:first-child { border-top: none; }
     .jobd-sec dt {
@@ -2836,7 +2838,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button type="button" class="kv-q-btn" data-experience="none">
           <span class="kv-q-btn-icon">🌱</span>
           <span class="kv-q-btn-text">
-            <span class="kv-q-btn-main">未経験</span>
+            <span class="kv-q-btn-main">営業未経験</span>
             <span class="kv-q-btn-sub">これから営業に挑戦したい</span>
           </span>
           <span class="kv-q-btn-arrow">›</span>
@@ -2844,7 +2846,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button type="button" class="kv-q-btn" data-experience="experienced">
           <span class="kv-q-btn-icon">💼</span>
           <span class="kv-q-btn-text">
-            <span class="kv-q-btn-main">経験者</span>
+            <span class="kv-q-btn-main">営業経験者</span>
             <span class="kv-q-btn-sub">営業経験あり・キャリアアップ</span>
           </span>
           <span class="kv-q-btn-arrow">›</span>
@@ -3009,7 +3011,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="logos-section">
   <div class="logos-heading">
     <span class="logos-heading-badge">選ばれる理由</span>
-    <h2 class="logos-heading-title logos-heading-title--big">他媒体にはない<br><span class="logos-heading-em">非公開求人</span>をご紹介</h2>
+    <h2 class="logos-heading-title logos-heading-title--big">他媒体にはない<br>大手の<span class="logos-heading-em">非公開求人</span>をご紹介</h2>
   </div>
   <div class="logos-track">
     <img src="images/KISHUN 2.png" alt="KISHUN">
@@ -3092,6 +3094,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
 
+  <!--
+    ◆◆ 求人カードの追加方法（80社規模にも対応／コード修正不要） ◆◆
+    1. 下の <article class="job3-card" ...> ブロックを1つコピーして追記するだけ。
+       - data-tags は何でも可（空でなければOK。絞り込み対象になります）
+       - 画像=job3-main / タイトル=job3-title / 会社名=job3-company / 年収=job3-salary-num
+         はモーダルにそのまま反映されます。
+    2. 会社概要などの詳細をモーダルに出したい場合のみ、最下部の <script> 内
+       「const JOBS = {…}」に「'会社名': { overview, content, persona, mikeiken, career }」を追記。
+       未記載でも「※詳細は面談でご案内します。」と表示され問題なく動作します。
+    ※ 絞り込みの並び順・件数・モザイクは自動対応するため、追加時のJS編集は不要です。
+  -->
   <div class="pick-list" id="pickList">
     <!-- Card 1 -->
     <article class="job3-card" data-tags="mikeiken high fukuri">
@@ -3990,34 +4003,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   cards.forEach((c, i) => { c.dataset.id = String(i + 1); });
   const cardById = id => cards.find(c => c.dataset.id === String(id));
 
-  const LABELS = {
-    '一般営業・新規開拓営業':         '「一般営業・新規開拓営業」',
-    'インサイドセールス':             '「インサイドセールス」',
-    'フィールドセールス':             '「フィールドセールス」',
-    '既存営業・ルート営業':           '「既存営業・ルート営業」',
-    'カスタマーサクセス':             '「カスタマーサクセス」',
-    'カスタマーサポート':             '「カスタマーサポート」',
-    '代理店営業・パートナーセールス': '「代理店営業・パートナーセールス」',
-    '営業企画・営業推進':             '「営業企画・営業推進」',
-    '営業管理職・マネージャー':       '「営業管理職・マネージャー」',
-    '技術営業・専門営業':             '「技術営業・専門営業」'
-  };
-
-  // カテゴリ（職種）ごとの表示順（全カードを表示しつつ、並び順を毎回変えて「絞り込まれた」ことを明確にする）
-  // 1コレック 2新日本住設 3翔陽 4レオパレス 5大東建託 6ケイアイスター 7大和財託 8貴瞬
-  const ORDER = {
-    all:                            [1, 2, 3, 4, 5, 6, 7, 8],
-    '一般営業・新規開拓営業':         [5, 3, 8, 1, 7, 2, 4, 6],
-    'インサイドセールス':             [2, 6, 8, 5, 3, 7, 1, 4],
-    'フィールドセールス':             [5, 4, 1, 2, 3, 6, 7, 8],
-    '既存営業・ルート営業':           [4, 5, 8, 3, 2, 1, 7, 6],
-    'カスタマーサクセス':             [4, 1, 3, 8, 6, 5, 2, 7],
-    'カスタマーサポート':             [1, 4, 5, 2, 8, 6, 3, 7],
-    '代理店営業・パートナーセールス': [4, 2, 6, 8, 1, 3, 5, 7],
-    '営業企画・営業推進':             [6, 3, 1, 7, 4, 8, 2, 5],
-    '営業管理職・マネージャー':       [7, 8, 2, 5, 1, 4, 6, 3],
-    '技術営業・専門営業':             [3, 5, 7, 1, 6, 2, 8, 4]
-  };
+  // カテゴリ（職種）ごとに並び順を自動で変える（求人数が増えてもコード修正不要）
+  const allChips = Array.from(chips);
+  function rotate(ids, offset) {
+    const n = ids.length;
+    if (!n) return ids;
+    const k = ((offset % n) + n) % n;
+    return ids.slice(k).concat(ids.slice(0, k));
+  }
 
   function applyOrder(ids) {
     const set = new Set(ids);
@@ -4037,18 +4030,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       chips.forEach(c => c.classList.remove('is-active'));
       chip.classList.add('is-active');
       const f = chip.dataset.filter;
-      const ids = ORDER[f] || cards.map(c => Number(c.dataset.id));
+      const baseIds = cards.map(c => Number(c.dataset.id));
 
       if (f === 'all') {
         // すべて表示・モザイク解除・元の並び順に戻す
-        applyOrder(ids);
+        applyOrder(baseIds);
         list.classList.remove('is-filtered');
         if (locked) locked.hidden = false;
         return;
       }
 
-      // 該当求人だけを「カテゴリごとの順番」で表示し、モザイク化（求人の詳細ボタンのみ操作可）
-      applyOrder(ids);
+      // カテゴリごとに並び順を変えて（チップ位置でローテーション）モザイク化
+      const idx = allChips.indexOf(chip);
+      applyOrder(rotate(baseIds, idx));
       list.classList.add('is-filtered');
       if (locked) locked.hidden = true;
       list.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -4144,14 +4138,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const tags    = Array.from(card.querySelectorAll('.job3-tag'))
       .map(t => `<span class="jobd-tag">${esc(t.textContent)}</span>`).join('');
 
+    // カテゴリで絞り込み中（=リストがモザイク状態）に開いた詳細のみモザイクをかける
+    const pickList = document.getElementById('pickList');
+    const locked = !!(pickList && pickList.classList.contains('is-filtered'));
+
     body.innerHTML =
+      `<div class="jobd-detail${locked ? ' is-locked' : ''}" id="jobdDetail">` +
       `<div class="jobd-hero"><img src="${esc(img)}" alt=""></div>` +
       `<div class="jobd-head">` +
         `<div class="jobd-tags">${tags}</div>` +
         `<h2 class="jobd-title">${esc(title)}</h2>` +
         `<div class="jobd-company">${esc(company.trim())}</div>` +
       `</div>` +
-      `<dl class="jobd-sections is-locked" id="jobdSections">` +
+      `<dl class="jobd-sections" id="jobdSections">` +
         `<div class="jobd-sec"><dt>会社概要</dt><dd>${esc(data.overview || '※詳細は面談でご案内します。')}</dd></div>` +
         `<div class="jobd-sec"><dt>年収レンジ</dt><dd class="jobd-salary">${esc(salary)}</dd></div>` +
         `<div class="jobd-sec"><dt>仕事内容</dt><dd>${esc(data.content || '※詳細は面談でご案内します。')}</dd></div>` +
@@ -4188,6 +4187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           `<option value="技術営業・専門営業">技術営業・専門営業</option>` +
         `</select>` +
         `<button type="button" class="jobd-cat-btn" id="jdcSearch">🔍 検索する</button>` +
+      `</div>` +
       `</div>`;
 
     const submitBtn = document.getElementById('jdSubmit');
@@ -4216,10 +4216,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       submitBtn.textContent = '送信中...';
       const done = () => {
         // 送信完了 → 詳細のモザイクを解除して公開
-        const sec = document.getElementById('jobdSections');
-        if (sec) sec.classList.remove('is-locked');
-        const comp = document.querySelector('.jobd-company');
-        if (comp) { comp.style.filter = 'none'; comp.style.userSelect = 'auto'; }
+        const detail = document.getElementById('jobdDetail');
+        if (detail) detail.classList.remove('is-locked');
         const f = document.getElementById('jobdForm');
         if (f) f.innerHTML = '<div class="jobd-thanks">✅ 求人詳細を公開しました！<br>担当者からも詳しくご連絡いたします。</div>';
         const sc = document.getElementById('jobModalBody');
