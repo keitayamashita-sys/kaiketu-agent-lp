@@ -511,29 +511,245 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .kv-result-back:hover { color: #1565d8; }
 
+    /* --- Income step --- */
+    .kv-income-options { gap: 10px; }
+    .kv-income-btn {
+      padding: 14px 18px;
+    }
+    .kv-income-emoji {
+      font-size: 22px;
+      flex-shrink: 0;
+      width: 36px;
+      text-align: center;
+    }
+    .kv-income-btn .kv-q-btn-main {
+      flex: 1;
+      font-size: 16px;
+    }
+
+    /* --- Result: selection summary --- */
+    .kv-result-selection {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .kv-selection-chip {
+      background: #eef5ff;
+      border: 1px solid rgba(21,101,216,0.22);
+      color: #0a4fb0;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 5px 14px;
+      border-radius: 999px;
+    }
+    .kv-selection-x {
+      color: #6a7a95;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* --- Result: 年収アップ訴求 --- */
+    .kv-result-uplift {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      max-width: 360px;
+      margin: 0 auto 22px;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, #fff7e6 0%, #fff0d6 100%);
+      border: 1px solid #ffd591;
+      border-radius: 14px;
+    }
+    .kv-uplift-now {
+      color: #7a6a48;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .kv-uplift-now b { color: #4a5b78; font-weight: 800; }
+    .kv-uplift-arrow {
+      color: #f59e0b;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .kv-uplift-target {
+      color: #0a2547;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .kv-uplift-target b {
+      color: #e8590c;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    /* --- Result: 求人票カード --- */
+    .kv-jobs { margin: 0 auto 22px; max-width: 360px; }
+    .kv-jobs-label {
+      text-align: left;
+      color: #4a5b78;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      padding-left: 2px;
+    }
+    .kv-jobs-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 4px 2px 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .kv-jobs-scroll::-webkit-scrollbar { height: 5px; }
+    .kv-jobs-scroll::-webkit-scrollbar-thumb {
+      background: rgba(21,101,216,0.25);
+      border-radius: 999px;
+    }
+    .kv-job-card {
+      flex: 0 0 230px;
+      scroll-snap-align: start;
+      background: #fff;
+      border: 1px solid rgba(21,101,216,0.16);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(10,79,176,0.08);
+      text-align: left;
+    }
+    .kv-job-thumb {
+      position: relative;
+      height: 96px;
+      overflow: hidden;
+      background: #eef5ff;
+    }
+    .kv-job-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .kv-job-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #1565d8;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .kv-job-badge--urgent { background: #e8590c; }
+    .kv-job-pin {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      background: rgba(10,37,71,0.82);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .kv-job-body { padding: 12px 12px 14px; }
+    .kv-job-title {
+      color: #0a2547;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+      margin: 0 0 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .kv-job-company {
+      color: #6a7a95;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      filter: blur(4px);
+      user-select: none;
+      width: fit-content;
+    }
+    .kv-job-spec { margin: 0 0 10px; }
+    .kv-job-spec > div {
+      display: flex;
+      gap: 6px;
+      font-size: 11px;
+      line-height: 1.5;
+      padding: 3px 0;
+      border-top: 1px solid #eef2f8;
+    }
+    .kv-job-spec dt {
+      flex-shrink: 0;
+      width: 58px;
+      color: #8a97ad;
+      font-weight: 700;
+      margin: 0;
+    }
+    .kv-job-spec dd {
+      margin: 0;
+      color: #2a3b58;
+      font-weight: 700;
+    }
+    .kv-job-salary { display: flex !important; align-items: center; gap: 6px; }
+    .kv-job-salary .kv-salary-num {
+      color: #e8590c;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+    .kv-job-salary .kv-salary-lock { display: none; }
+    .kv-job-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .kv-job-tag {
+      background: #eef5ff;
+      color: #1565d8;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
     /* --- LP body hidden state --- */
     .lp-body[hidden] { display: none; }
 
     /* ===== COMPANY LOGOS MARQUEE ===== */
     .logos-section {
-      background: #fff;
-      padding: 32px 0 28px;
+      background: linear-gradient(180deg, #e8f1ff 0%, #d6e7ff 100%);
+      padding: 36px 0 30px;
       overflow: hidden;
     }
     .logos-heading {
       text-align: center;
-      padding: 0 20px 20px;
+      margin: 0 16px 24px;
+      padding: 26px 18px 24px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(10,79,176,0.16);
+      border-top: 5px solid #0a4fb0;
+      position: relative;
     }
     .logos-heading-badge {
       display: inline-block;
       background: linear-gradient(135deg, #2a8fff 0%, #0a4fb0 100%);
       color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      padding: 3px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 5px 18px;
       border-radius: 20px;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 16px rgba(10,79,176,0.28);
     }
     .logos-heading-title {
       font-size: 24px;
@@ -542,16 +758,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       letter-spacing: 0.5px;
       margin-bottom: 10px;
     }
+    .logos-heading-title--big {
+      font-size: 31px;
+      font-weight: 900;
+      line-height: 1.45;
+      margin-bottom: 0;
+    }
     .logos-heading-em {
-      color: #0074d9;
+      color: #0a4fb0;
       position: relative;
+      z-index: 0;
+      padding: 0 2px;
     }
     .logos-heading-em::after {
       content: '';
       position: absolute;
-      left: 0; right: 0; bottom: -2px;
-      height: 6px;
-      background: rgba(0,116,217,0.15);
+      left: -2px; right: -2px; bottom: 2px;
+      height: 12px;
+      background: linear-gradient(90deg, #ffe45c, #ffd21a);
+      border-radius: 3px;
+      z-index: -1;
     }
     .logos-heading-sub {
       font-size: 13px;
@@ -559,16 +785,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #666;
       line-height: 1.7;
     }
+    .logos-heading-sub strong {
+      color: #0a4fb0;
+      font-weight: 800;
+    }
+    .logos-reasons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 320px;
+      margin: 18px auto 0;
+    }
+    .logos-reason {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f4f8ff;
+      border: 1px solid rgba(21,101,216,0.16);
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+    .logos-reason-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #2a8fff 0%, #0a4fb0 100%);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      border-radius: 50%;
+    }
+    .logos-reason-text {
+      color: #2a3b58;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: left;
+    }
+    .logos-reason-text strong {
+      color: #0a4fb0;
+      font-weight: 900;
+    }
     .logos-track {
       display: flex;
       align-items: center;
       gap: 20px;
-      animation: marquee 15s linear infinite;
+      animation: marquee 22s linear infinite;
       width: max-content;
       margin-bottom: 14px;
     }
+    /* 下段は上段と同方向・同速度。順番を半周分ずらすことで、同じロゴが縦に重ならない */
     .logos-track--reverse {
-      animation: marquee-reverse 18s linear infinite;
+      animation: marquee 22s linear infinite;
       margin-bottom: 0;
     }
     .logos-track img {
@@ -1000,28 +1270,88 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* ===== JOB LIST SECTION ===== */
     .job-section {
-      background: #fff;
-      padding: 56px 0 0;
+      background: linear-gradient(180deg, #eaf2fe 0%, #f4f8ff 60%, #ffffff 100%);
+      padding: 48px 0 0;
     }
     .job-section-header {
       text-align: center;
-      padding: 0 25px;
-      margin-bottom: 6px;
+      padding: 0 20px;
+      margin-bottom: 14px;
+    }
+    .job-section-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff7a3c 0%, #e8590c 100%);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      box-shadow: 0 8px 18px rgba(232,89,12,0.30);
     }
     .section-title {
-      font-size: 28px;
-      font-weight: 700;
+      font-size: 30px;
+      font-weight: 900;
       letter-spacing: 1px;
-      line-height: 1.45;
-      color: #282828;
+      line-height: 1.4;
+      color: #0a2547;
     }
     .section-title-bar {
       display: block;
-      width: 40px;
-      height: 3px;
+      width: 48px;
+      height: 4px;
       background: linear-gradient(to right, #0052b5, #3a9bdc);
       border-radius: 2px;
-      margin: 4px auto 16px;
+      margin: 8px auto 14px;
+    }
+    .job-section-lead {
+      font-size: 14px;
+      font-weight: 600;
+      color: #3a4b66;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .job-section-lead strong {
+      color: #e8590c;
+      font-weight: 900;
+      font-size: 16px;
+    }
+    .job-section-stats {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      max-width: 360px;
+      margin: 0 auto;
+      padding: 14px 8px;
+      background: #fff;
+      border: 1px solid rgba(21,101,216,0.16);
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(10,79,176,0.10);
+    }
+    .job-stat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .job-stat-num {
+      font-family: 'Roboto', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #0a4fb0;
+      line-height: 1;
+    }
+    .job-stat-num small { font-size: 12px; font-weight: 800; }
+    .job-stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6a7a95;
+    }
+    .job-stat-div {
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(21,101,216,0.25), transparent);
     }
     .job-section-desc {
       font-size: 14px;
@@ -1251,6 +1581,428 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #0074d9;
       font-weight: 800;
     }
+
+    /* ===== Pick filter ===== */
+    .pick-filter {
+      padding: 0 16px 12px;
+    }
+    .pick-filter-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      color: #0a2547;
+      margin-bottom: 10px;
+    }
+    .pick-filter-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #0a2547;
+      background: #fff;
+      border: 1.5px solid #cfe1ff;
+      border-radius: 12px;
+      padding: 13px 16px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(10,79,176,0.06);
+    }
+    .pick-filter-toggle .pick-filter-caret {
+      color: #0074d9;
+      font-size: 12px;
+      transition: transform 0.2s;
+    }
+    .pick-filter-toggle[aria-expanded="true"] {
+      border-color: #0074d9;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .pick-filter-toggle[aria-expanded="true"] .pick-filter-caret {
+      transform: rotate(180deg);
+    }
+    .pick-filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 14px;
+      border: 1.5px solid #0074d9;
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      background: #fafcff;
+    }
+    .pick-filter-chips[hidden] { display: none; }
+    .pick-chip {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0074d9;
+      background: #fff;
+      border: 1.5px solid #cfe1ff;
+      border-radius: 999px;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .pick-chip:hover { border-color: #0074d9; }
+    .pick-chip.is-active {
+      color: #fff;
+      background: linear-gradient(135deg, #2a8fff 0%, #0a4fb0 100%);
+      border-color: #0a4fb0;
+    }
+
+    /* 絞り込み時の会員限定バナー */
+    .pick-lockbar {
+      margin: 0 16px 14px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #eef5ff 0%, #e3efff 100%);
+      border: 1.5px solid #b9d4ff;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(10,79,176,0.10);
+    }
+    .pick-lockbar[hidden] { display: none; }
+    .pick-lockbar-lock { font-size: 26px; display: block; margin-bottom: 6px; }
+    .pick-lockbar-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0a2547;
+      line-height: 1.6;
+      margin: 0 0 12px;
+    }
+    .pick-lockbar-text strong { color: #0a4fb0; font-weight: 900; }
+    .pick-lockbar-sub { font-size: 12px; font-weight: 600; color: #4a5b78; }
+    .pick-lockbar-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #2a8fff 0%, #0a4fb0 100%);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(10,79,176,0.28);
+    }
+
+    /* 絞り込み実行時：該当求人をモザイク化 */
+    .pick-list.is-filtered .job3-card {
+      filter: blur(6px);
+      pointer-events: none;
+      user-select: none;
+    }
+    .job3-card[hidden] { display: none !important; }
+
+    /* ===== Pick card (listing style) ===== */
+    .job3-card {
+      background: #fff;
+      border: 1px solid #dbe6f5;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(10,79,176,0.12);
+      border-top: 4px solid #0a4fb0;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .job3-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(10,79,176,0.18);
+    }
+    .job3-top {
+      display: flex;
+      gap: 12px;
+      padding: 12px;
+    }
+    .job3-gallery {
+      flex-shrink: 0;
+      width: 116px;
+    }
+    .job3-main {
+      width: 116px;
+      height: 92px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+    .job3-thumbs {
+      display: flex;
+      gap: 4px;
+      margin-top: 4px;
+    }
+    .job3-thumbs img {
+      width: 36px;
+      height: 28px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+    .job3-info { flex: 1; min-width: 0; }
+    .job3-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0a4fb0;
+      line-height: 1.4;
+      margin: 0 0 8px;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(10,79,176,0.3);
+    }
+    .job3-spec { margin: 0; }
+    .job3-row {
+      display: flex;
+      gap: 8px;
+      font-size: 11px;
+      line-height: 1.5;
+      padding: 4px 0;
+      border-top: 1px solid #eef2f8;
+    }
+    .job3-row dt {
+      flex-shrink: 0;
+      width: 62px;
+      color: #8a97ad;
+      font-weight: 700;
+      margin: 0;
+    }
+    .job3-row dd {
+      flex: 1;
+      margin: 0;
+      color: #2a3b58;
+      font-weight: 700;
+    }
+    .job3-company {
+      filter: blur(5px);
+      user-select: none;
+      letter-spacing: 0.5px;
+    }
+    .job3-salary { display: flex; align-items: center; gap: 6px; }
+    .job3-salary-num {
+      color: #e8590c;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+    .job3-salary-lock { display: none; }
+    .job3-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 0 12px 12px;
+    }
+    .job3-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: #0074d9;
+      background: #f3f8ff;
+      border: 1px solid #d8e6ff;
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .job3-foot {
+      border-top: 1px solid #eef2f8;
+      padding: 10px 12px 12px;
+      background: #fafcff;
+    }
+    .job3-foot-label {
+      display: block;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: #e8590c;
+      margin-bottom: 8px;
+    }
+    .job3-btns { display: flex; gap: 8px; }
+    .job3-btn {
+      flex: 1;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 10px 6px;
+      border-radius: 8px;
+    }
+    .job3-btn--primary {
+      color: #fff;
+      background: linear-gradient(135deg, #2a8fff 0%, #0a4fb0 100%);
+      box-shadow: 0 4px 12px rgba(10,79,176,0.25);
+    }
+    .job3-btn--dark {
+      color: #fff;
+      background: #2a3b58;
+    }
+    .job3-card--blur {
+      filter: blur(6px);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ===== Job detail modal (full screen) ===== */
+    .jobmodal { position: fixed; inset: 0; z-index: 2000; display: flex; }
+    .jobmodal[hidden] { display: none; }
+    .jobmodal__overlay { position: absolute; inset: 0; background: rgba(10,37,71,0.55); }
+    .jobmodal__panel {
+      position: relative;
+      margin: auto;
+      width: 100%;
+      max-width: 480px;
+      height: 100%;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 40px rgba(0,0,0,0.35);
+      animation: jobmodalIn 0.25s ease both;
+    }
+    @keyframes jobmodalIn {
+      from { transform: translateY(16px); opacity: 0.4; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+    .jobmodal__close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 3;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(10,37,71,0.62);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+    .jobmodal__close:hover { background: rgba(10,37,71,0.85); }
+    .jobmodal__scroll { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+    .jobd-hero { width: 100%; height: 200px; background: #eef5ff; overflow: hidden; }
+    .jobd-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .jobd-head { padding: 16px 18px 4px; }
+    .jobd-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .jobd-tag {
+      font-size: 11px; font-weight: 700; color: #0074d9;
+      background: #f3f8ff; border: 1px solid #d8e6ff;
+      border-radius: 6px; padding: 3px 9px;
+    }
+    .jobd-title {
+      font-size: 18px; font-weight: 800; color: #0a2547;
+      line-height: 1.45; margin: 0 0 8px;
+    }
+    .jobd-company { font-size: 14px; font-weight: 800; color: #0a4fb0; filter: blur(5px); user-select: none; width: fit-content; }
+    .jobd-sections { margin: 14px 0 0; padding: 0 18px; }
+    .jobd-sec { padding: 16px 0; border-top: 1px solid #eef2f8; }
+    .jobd-sec:first-child { border-top: none; }
+    .jobd-sec dt {
+      font-size: 13px; font-weight: 800; color: #0a4fb0;
+      margin: 0 0 6px; padding-left: 10px; position: relative;
+    }
+    .jobd-sec dt::before {
+      content: ''; position: absolute; left: 0; top: 2px; bottom: 2px;
+      width: 4px; border-radius: 2px;
+      background: linear-gradient(180deg, #2a8fff, #0a4fb0);
+    }
+    .jobd-sec dd {
+      margin: 0; font-size: 14px; font-weight: 600;
+      color: #2a3b58; line-height: 1.7;
+    }
+    .jobd-salary { color: #e8590c !important; font-weight: 900 !important; font-size: 17px !important; }
+    .jobd-note { font-size: 11px; font-weight: 600; color: #8a97ad; margin-top: 4px; }
+    .jobd-cta { padding: 8px 18px 28px; }
+    .jobd-cta-btn {
+      display: block; width: 100%; text-align: center; text-decoration: none;
+      font-size: 15px; font-weight: 800; color: #fff;
+      background: linear-gradient(135deg, #2a8fff 0%, #0a4fb0 100%);
+      padding: 15px; border: none; border-radius: 999px; cursor: pointer;
+      box-shadow: 0 10px 24px rgba(10,79,176,0.28);
+    }
+    .jobd-cta-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    /* 求人詳細モーダル内フォーム */
+    .jobd-form {
+      margin: 6px 18px 10px;
+      padding: 18px 16px;
+      background: #f4f8ff;
+      border: 1.5px solid #cfe1ff;
+      border-radius: 14px;
+    }
+    .jobd-form-head {
+      font-size: 16px; font-weight: 900; color: #0a4fb0;
+      text-align: center;
+      border: 2px solid #0a4fb0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #fff;
+      margin-bottom: 14px;
+    }
+    /* 求人詳細モーダルのフォーム：下部フォームと同じUI（ラベル中央寄せ＋枠付き入力） */
+    .jobd-formwrap { padding: 4px 18px 8px; text-align: center; }
+    .jobd-formwrap .input-area { margin: 0 0 12px; }
+    .jobd-formwrap .input-row input,
+    .jobd-formwrap .input-row select { text-align: left; }
+    .jobd-form-sub {
+      font-size: 12px; font-weight: 600; color: #6a7a95;
+      text-align: center; margin: 0 0 14px;
+    }
+    .jobd-frow { margin-bottom: 10px; }
+    .jobd-frow input,
+    .jobd-frow select {
+      width: 100%; box-sizing: border-box;
+      font-size: 15px; padding: 13px 14px;
+      border: 1.5px solid #d8e2f0; border-radius: 10px;
+      background: #fff; color: #0a2547;
+      -webkit-appearance: none; appearance: none;
+    }
+    .jobd-frow select { background-image: none; }
+    .jobd-frow input:focus,
+    .jobd-frow select:focus { outline: none; border-color: #2a8fff; }
+    .jobd-err {
+      font-size: 12px; font-weight: 700; color: #e8590c;
+      min-height: 16px; margin-bottom: 8px;
+    }
+    .jobd-thanks {
+      text-align: center; font-size: 15px; font-weight: 800;
+      color: #0a4fb0; line-height: 1.7; padding: 14px 4px;
+    }
+    .jobd-browse {
+      display: block; text-align: center;
+      margin: 0 18px 28px; padding: 12px;
+      font-size: 14px; font-weight: 800; color: #0a4fb0;
+      text-decoration: none;
+      border: 1.5px solid #cfe1ff; border-radius: 999px;
+      background: #fff;
+    }
+    /* カテゴリー検索（求人詳細モーダル下部） */
+    .jobd-catsearch {
+      margin: 4px 18px 28px;
+      padding: 16px;
+      background: #eef5ff;
+      border: 1.5px solid #cfe1ff;
+      border-radius: 14px;
+    }
+    .jobd-cat-head {
+      text-align: center;
+      font-size: 14px; font-weight: 800; color: #0a2547;
+      margin-bottom: 12px;
+    }
+    .jobd-cat-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #2a8fff 0%, #0a4fb0 100%);
+      color: #fff; font-size: 12px; font-weight: 800;
+      padding: 4px 12px; border-radius: 999px; margin-right: 6px;
+    }
+    .jobd-cat-sel {
+      width: 100%; box-sizing: border-box;
+      font-size: 14px; font-weight: 700; color: #0a2547;
+      padding: 13px 12px;
+      border: 1.5px solid #d8e2f0; border-radius: 10px;
+      background: #fff;
+      margin-bottom: 12px;
+    }
+    .jobd-cat-sel:focus { outline: none; border-color: #2a8fff; }
+    .jobd-cat-btn {
+      display: block; width: 100%;
+      font-size: 15px; font-weight: 800; color: #fff;
+      background: linear-gradient(135deg, #2a8fff 0%, #0a4fb0 100%);
+      border: none; border-radius: 999px; padding: 14px; cursor: pointer;
+      box-shadow: 0 8px 20px rgba(10,79,176,0.28);
+    }
+    .jobd-cat-btn:hover { opacity: 0.95; }
 
     /* Locked / blurred area */
     .pick-locked {
@@ -1754,9 +2506,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin-bottom: 6px;
     }
     .input-row label .required {
-      color: var(--color-primary);
+      display: inline-block;
+      background: #e8384f;
+      color: #fff;
       font-size: 10px;
-      margin-left: 4px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .input-row label .optional {
+      display: inline-block;
+      background: #9aa6b6;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: 6px;
+      vertical-align: middle;
     }
     .input-row input,
     .input-row select {
@@ -1941,8 +2710,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* ===== FOOTER ===== */
     .footer {
       background: #111827;
-      padding: 14px 16px 12px;
+      padding: 20px 16px 12px;
       text-align: center;
+    }
+    .footer-cta {
+      display: block;
+      max-width: 320px;
+      margin: 0 auto 18px;
+      padding: 14px;
+      background: linear-gradient(135deg, #2a8fff 0%, #0a4fb0 100%);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(10,79,176,0.35);
     }
     .footer-logo {
       height: 28px;
@@ -2028,7 +2810,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HEADER -->
 <header class="header">
   <img src="images/logo.png" alt="カイケツエージェント" class="header-logo">
-  <a href="https://timerex.net/s/satooka-r_288d/25061ec6" target="_blank" rel="noopener" class="header-cta">無料でキャリア面談</a>
+  <a href="#entryForm" class="header-cta">担当者に相談する</a>
 </header>
 
 <!-- KV HERO -->
@@ -2039,12 +2821,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- STEP 1: 質問 -->
     <div class="kv-step kv-step--question is-active" id="kvStepQuestion">
-      <div class="kv-eyebrow"><span class="kv-eyebrow-line"></span>営業職に特化した転職エージェント<span class="kv-eyebrow-line"></span></div>
+      <div class="kv-eyebrow"><span class="kv-eyebrow-line"></span>あと2問回答するだけ<span class="kv-eyebrow-line"></span></div>
       <h1 class="kv-q-title">
-        あなたの<br>
-        <span class="kv-q-em">営業経験</span>を教えてください
+        <span class="kv-q-em">年収100万円UP</span>目指せる<br>
+        求人数を今すぐ調べる！
       </h1>
-      <p class="kv-q-sub">回答に合わせて、最適な求人数をお見せします。</p>
       <div class="kv-q-options">
         <button type="button" class="kv-q-btn" data-experience="none">
           <span class="kv-q-btn-icon">🌱</span>
@@ -2065,16 +2846,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- STEP 2: 結果 -->
+    <!-- STEP 2: 年収帯 -->
+    <div class="kv-step kv-step--income" id="kvStepIncome">
+      <div class="kv-eyebrow"><span class="kv-eyebrow-line"></span>あと1問で求人数がわかります<span class="kv-eyebrow-line"></span></div>
+      <h2 class="kv-q-title">
+        現在の<span class="kv-q-em">年収帯</span>を<br>教えてください 💰
+      </h2>
+      <p class="kv-q-sub">※おおよそで大丈夫です！</p>
+      <div class="kv-q-options kv-income-options">
+        <button type="button" class="kv-q-btn kv-income-btn" data-income="300">
+          <span class="kv-income-emoji">💴</span>
+          <span class="kv-q-btn-main">〜300万円</span>
+          <span class="kv-q-btn-arrow">›</span>
+        </button>
+        <button type="button" class="kv-q-btn kv-income-btn" data-income="300-400">
+          <span class="kv-income-emoji">💴</span>
+          <span class="kv-q-btn-main">300〜400万円</span>
+          <span class="kv-q-btn-arrow">›</span>
+        </button>
+        <button type="button" class="kv-q-btn kv-income-btn" data-income="400-500">
+          <span class="kv-income-emoji">💴</span>
+          <span class="kv-q-btn-main">400〜500万円</span>
+          <span class="kv-q-btn-arrow">›</span>
+        </button>
+        <button type="button" class="kv-q-btn kv-income-btn" data-income="500-600">
+          <span class="kv-income-emoji">💴</span>
+          <span class="kv-q-btn-main">500〜600万円</span>
+          <span class="kv-q-btn-arrow">›</span>
+        </button>
+        <button type="button" class="kv-q-btn kv-income-btn" data-income="600">
+          <span class="kv-income-emoji">💎</span>
+          <span class="kv-q-btn-main">600万円以上</span>
+          <span class="kv-q-btn-arrow">›</span>
+        </button>
+      </div>
+      <button type="button" class="kv-result-back" id="kvBackToQ">‹ 経験を選び直す</button>
+    </div>
+
+    <!-- STEP 3: 結果 -->
     <div class="kv-step kv-step--result" id="kvStepResult">
+      <!-- 選択内容サマリー -->
+      <div class="kv-result-selection">
+        <span class="kv-selection-chip" id="kvSelExp">未経験</span>
+        <span class="kv-selection-x">×</span>
+        <span class="kv-selection-chip" id="kvSelIncome">現在 〜300万円</span>
+      </div>
+      <!-- 年収アップ訴求（選択に応じて変化） -->
+      <div class="kv-result-uplift">
+        <span class="kv-uplift-now">いまの年収 <b id="kvNowIncome">〜300万円</b></span>
+        <span class="kv-uplift-arrow">▶</span>
+        <span class="kv-uplift-target"><b id="kvTargetIncome">400万円以上</b>も目指せる</span>
+      </div>
+
       <div class="kv-result-eyebrow">あなたに合う営業求人は</div>
       <div class="kv-result-count">
         <span class="kv-count-num" id="kvCountNum">0</span>
         <span class="kv-count-unit">件</span>
-      </div>
-      <div class="kv-result-message">
-        <span id="kvResultLabel"></span><br>
-        <strong>これだけの求人が、いま見られます。</strong>
       </div>
       <div class="kv-result-meta">
         <div class="kv-result-meta-item">
@@ -2087,11 +2914,83 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="kv-result-meta-label">平均年収UP</span>
         </div>
       </div>
+
+      <!-- 求人票カード（FVに追加） -->
+      <div class="kv-jobs">
+        <div class="kv-jobs-label">求人の一例</div>
+        <div class="kv-jobs-scroll">
+          <article class="kv-job-card">
+            <div class="kv-job-thumb">
+              <img src="images/ChatGPT Image 2026年5月25日 19_45_29.png" alt="株式会社翔陽">
+              <span class="kv-job-badge kv-job-badge--urgent">急募</span>
+              <span class="kv-job-pin">社宅・家賃制度あり</span>
+            </div>
+            <div class="kv-job-body">
+              <h3 class="kv-job-title">高価買取専門の営業｜完全学歴不問・入社1ヶ月でインセン50万円の実績</h3>
+              <div class="kv-job-company">株式会社翔陽</div>
+              <dl class="kv-job-spec">
+                <div><dt>業種</dt><dd>高価買取専門の営業</dd></div>
+                <div><dt>ポジション</dt><dd>一般営業職／フィールドセールス</dd></div>
+                <div><dt>年収</dt><dd class="kv-job-salary"><span class="kv-salary-num">300万〜1,500万円</span><span class="kv-salary-lock">🔒登録で公開</span></dd></div>
+              </dl>
+              <div class="kv-job-tags">
+                <span class="kv-job-tag">おすすめ</span>
+                <span class="kv-job-tag">高インセンティブ率</span>
+                <span class="kv-job-tag">学歴不問</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="kv-job-card">
+            <div class="kv-job-thumb">
+              <img src="images/ChatGPT Image 2026年5月25日 19_45_39.png" alt="株式会社レオパレス21">
+              <span class="kv-job-badge">募集中</span>
+              <span class="kv-job-pin">年間休日123日</span>
+            </div>
+            <div class="kv-job-body">
+              <h3 class="kv-job-title">賃貸カウンター営業｜賞与は平均118万円・3年定着率90%の安定環境</h3>
+              <div class="kv-job-company">株式会社レオパレス21</div>
+              <dl class="kv-job-spec">
+                <div><dt>業種</dt><dd>賃貸カウンター営業</dd></div>
+                <div><dt>ポジション</dt><dd>一般営業職／カウンターセールス</dd></div>
+                <div><dt>年収</dt><dd class="kv-job-salary"><span class="kv-salary-num">330万〜700万円</span><span class="kv-salary-lock">🔒登録で公開</span></dd></div>
+              </dl>
+              <div class="kv-job-tags">
+                <span class="kv-job-tag">おすすめ</span>
+                <span class="kv-job-tag">定着率90%</span>
+                <span class="kv-job-tag">社宅・家賃制度あり</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="kv-job-card">
+            <div class="kv-job-thumb">
+              <img src="images/ChatGPT Image 2026年5月25日 19_45_43.png" alt="大東建託株式会社">
+              <span class="kv-job-badge kv-job-badge--urgent">急募</span>
+              <span class="kv-job-pin">未経験歓迎</span>
+            </div>
+            <div class="kv-job-body">
+              <h3 class="kv-job-title">不動産営業｜未経験・第二新卒歓迎・初年度から年収1,000万円も狙える</h3>
+              <div class="kv-job-company">大東建託株式会社</div>
+              <dl class="kv-job-spec">
+                <div><dt>業種</dt><dd>不動産営業</dd></div>
+                <div><dt>ポジション</dt><dd>一般営業職／フィールドセールス</dd></div>
+                <div><dt>年収</dt><dd class="kv-job-salary"><span class="kv-salary-num">360万〜1,000万円</span><span class="kv-salary-lock">🔒登録で公開</span></dd></div>
+              </dl>
+              <div class="kv-job-tags">
+                <span class="kv-job-tag">未経験歓迎</span>
+                <span class="kv-job-tag">土日休み</span>
+                <span class="kv-job-tag">第二新卒OK</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
       <button type="button" class="kv-result-cta" id="kvShowMore">
-        <span class="kv-result-cta-main">求人の詳細を見る</span>
-        <span class="kv-result-cta-sub">▼ あなたにぴったりの求人はこちら</span>
+        <span class="kv-result-cta-main">ピックアップ求人を見てみる</span>
+        <span class="kv-result-cta-sub">おすすめの求人はこちら</span>
       </button>
-      <button type="button" class="kv-result-back" id="kvBack">‹ 経験を選び直す</button>
     </div>
 
   </div>
@@ -2103,9 +3002,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- COMPANY LOGOS MARQUEE -->
 <section class="logos-section">
   <div class="logos-heading">
-    <span class="logos-heading-badge">企業から直接依頼</span>
-    <h2 class="logos-heading-title"><span class="logos-heading-em">直求人</span>だから叶う高待遇</h2>
-    <p class="logos-heading-sub">仲介を挟まない直接契約企業が多数。<br>だからこそ好条件の非公開求人をご紹介できます。</p>
+    <span class="logos-heading-badge">選ばれる理由</span>
+    <h2 class="logos-heading-title logos-heading-title--big">他媒体にはない<br><span class="logos-heading-em">非公開求人</span>をご紹介</h2>
   </div>
   <div class="logos-track">
     <img src="images/KISHUN 2.png" alt="KISHUN">
@@ -2126,24 +3024,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <img src="images/BuySell Technologies.png" alt="BuySell Technologies">
   </div>
   <div class="logos-track logos-track--reverse">
+    <!-- 上段の並びを4つ分ローテーション（半周ずらし）。同方向・同速度なので同じロゴが縦に重ならない -->
+    <img src="images/shin-nihon-jusetsu.png" alt="新日本住設">
     <img src="images/daito-kentaku.png" alt="大東建託">
     <img src="images/shoyo.png" alt="翔陽">
     <img src="images/BuySell Technologies.png" alt="BuySell Technologies">
     <img src="images/KISHUN 2.png" alt="KISHUN">
-    <img src="images/correc.png" alt="コレック">
     <img src="images/open-house.png" alt="オープンハウス">
+    <img src="images/correc.png" alt="コレック">
     <img src="images/leopalace21.png" alt="レオパレス21">
     <img src="images/shin-nihon-jusetsu.png" alt="新日本住設">
     <img src="images/daito-kentaku.png" alt="大東建託">
     <img src="images/shoyo.png" alt="翔陽">
     <img src="images/BuySell Technologies.png" alt="BuySell Technologies">
     <img src="images/KISHUN 2.png" alt="KISHUN">
-    <img src="images/correc.png" alt="コレック">
     <img src="images/open-house.png" alt="オープンハウス">
+    <img src="images/correc.png" alt="コレック">
     <img src="images/leopalace21.png" alt="レオパレス21">
-    <img src="images/shin-nihon-jusetsu.png" alt="新日本住設">
   </div>
-  <p class="logos-note">…and more　その他多数の直接契約企業</p>
 </section>
 
 <!-- AUTHORITY SECTION (removed: stats moved into KV hero) -->
@@ -2153,413 +3051,317 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- JOB LIST SECTION -->
 <section class="job-section" id="jobSection">
   <div class="job-section-header">
+    <span class="job-section-badge">🔥 高待遇の厳選求人</span>
     <h2 class="section-title">ピックアップ求人</h2>
     <span class="section-title-bar"></span>
-  </div>
-  <p class="job-section-desc">
-    「経験がないから無理かも」は、もう不要。<br>
-    <strong>未経験から年収400万円以上</strong>を狙える求人が、<br>
-    これだけそろっています。
-  </p>
-  <div class="job-section-emphasis">
-    <span class="job-emphasis-text">学歴・経験は不問。</span><br>
-    <span class="job-emphasis-text">あなたを待つ会社があります。</span>
+    <div class="job-section-stats">
+      <div class="job-stat"><span class="job-stat-num"><span id="jobStatCount">8,529</span><small>件</small></span><span class="job-stat-label">厳選求人</span></div>
+      <div class="job-stat-div"></div>
+      <div class="job-stat"><span class="job-stat-num">90<small>%</small></span><span class="job-stat-label">書類通過率</span></div>
+      <div class="job-stat-div"></div>
+      <div class="job-stat"><span class="job-stat-num">+100<small>万</small></span><span class="job-stat-label">平均年収UP</span></div>
+    </div>
   </div>
   <p class="job-note">※掲載は一例です</p>
 
-  <div class="pick-list">
+  <!-- 絞り込み -->
+  <div class="pick-filter">
+    <button type="button" class="pick-filter-toggle" id="pickFilterToggle" aria-expanded="false" aria-controls="pickFilterChips">
+      <span>🔍 カテゴリ（職種）で絞り込む</span>
+      <span class="pick-filter-caret">▼</span>
+    </button>
+    <div class="pick-filter-chips" id="pickFilterChips" hidden>
+      <button type="button" class="pick-chip is-active" data-filter="all">すべて</button>
+      <button type="button" class="pick-chip" data-filter="一般営業・新規開拓営業">一般営業・新規開拓営業</button>
+      <button type="button" class="pick-chip" data-filter="インサイドセールス">インサイドセールス</button>
+      <button type="button" class="pick-chip" data-filter="フィールドセールス">フィールドセールス</button>
+      <button type="button" class="pick-chip" data-filter="既存営業・ルート営業">既存営業・ルート営業</button>
+      <button type="button" class="pick-chip" data-filter="カスタマーサクセス">カスタマーサクセス</button>
+      <button type="button" class="pick-chip" data-filter="カスタマーサポート">カスタマーサポート</button>
+      <button type="button" class="pick-chip" data-filter="代理店営業・パートナーセールス">代理店営業・パートナーセールス</button>
+      <button type="button" class="pick-chip" data-filter="営業企画・営業推進">営業企画・営業推進</button>
+      <button type="button" class="pick-chip" data-filter="営業管理職・マネージャー">営業管理職・マネージャー</button>
+      <button type="button" class="pick-chip" data-filter="技術営業・専門営業">技術営業・専門営業</button>
+    </div>
+  </div>
+
+  <!-- 絞り込み時の会員限定バナー -->
+  <div class="pick-lockbar" id="pickLockbar" hidden>
+    <span class="pick-lockbar-lock">🔒</span>
+    <a href="#contact" class="pick-lockbar-btn">詳細はこちらから ▶</a>
+  </div>
+
+  <div class="pick-list" id="pickList">
     <!-- Card 1 -->
-    <div class="pick-card">
-      <div class="pick-card-thumb"><img src="images/ChatGPT Image 2026年5月25日 19_45_25.png" alt="株式会社コレックホールディングス"><span class="pick-card-salary">年収300〜1,000万円</span></div>
-      <div class="pick-card-main">
-        <div class="pick-card-company">株式会社コレックホールディングス</div>
-        <div class="pick-card-meta"><span>住宅設備営業</span><span>一般営業職</span><span>フィールドセールス</span></div>
-        <div class="pick-card-tags">
-          <span class="pick-card-tag">未経験でも安心の2週間研修</span>
-          <span class="pick-card-tag">1年以内に副部長昇格実績</span>
-          <span class="pick-card-tag">福利厚生充実</span>
+    <article class="job3-card" data-tags="mikeiken high fukuri">
+      <div class="job3-top">
+        <div class="job3-gallery">
+          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_25.png" alt="株式会社コレックホールディングス">
+          <div class="job3-thumbs">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_19.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_29.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_46_39.png" alt="">
+          </div>
+        </div>
+        <div class="job3-info">
+          <h3 class="job3-title">住宅設備営業｜未経験でも安心の2週間研修・福利厚生充実</h3>
+          <dl class="job3-spec">
+            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">株式会社コレックホールディングス</dd></div>
+            <div class="job3-row"><dt>業種・職種</dt><dd>住宅設備営業／一般営業職・フィールドセールス</dd></div>
+            <div class="job3-row"><dt>勤務地</dt><dd>東京都・関東一円（マイカー通勤可）</dd></div>
+            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">300万〜1,000万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
+          </dl>
         </div>
       </div>
-    </div>
+      <div class="job3-tags">
+        <span class="job3-tag">未経験歓迎</span>
+        <span class="job3-tag">1年で副部長昇格実績</span>
+        <span class="job3-tag">福利厚生充実</span>
+      </div>
+      <div class="job3-foot">
+        <div class="job3-btns">
+          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
+        </div>
+      </div>
+    </article>
+
     <!-- Card 2 -->
-    <div class="pick-card">
-      <div class="pick-card-thumb"><img src="images/ChatGPT Image 2026年5月25日 19_45_34.png" alt="新日本住設株式会社"><span class="pick-card-salary">年収420〜1,500万円</span></div>
-      <div class="pick-card-main">
-        <div class="pick-card-company">新日本住設株式会社</div>
-        <div class="pick-card-meta"><span>ハウスメーカー</span><span>一般営業職</span><span>フィールドセールス</span></div>
-        <div class="pick-card-tags">
-          <span class="pick-card-tag">未経験でも理論年収400万円超え</span>
-          <span class="pick-card-tag">20代で年収1,000万円</span>
-          <span class="pick-card-tag">賞与年3回</span>
+    <article class="job3-card" data-tags="mikeiken high">
+      <div class="job3-top">
+        <div class="job3-gallery">
+          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_34.png" alt="新日本住設株式会社">
+          <div class="job3-thumbs">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_39.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_43.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_19.png" alt="">
+          </div>
+        </div>
+        <div class="job3-info">
+          <h3 class="job3-title">ハウスメーカー営業｜未経験でも理論年収400万円超え・20代で1,000万円</h3>
+          <dl class="job3-spec">
+            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">新日本住設株式会社</dd></div>
+            <div class="job3-row"><dt>業種・職種</dt><dd>ハウスメーカー／一般営業職・フィールドセールス</dd></div>
+            <div class="job3-row"><dt>勤務地</dt><dd>東京都・大阪府・愛知県ほか</dd></div>
+            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">420万〜1,500万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
+          </dl>
         </div>
       </div>
-    </div>
+      <div class="job3-tags">
+        <span class="job3-tag">未経験歓迎</span>
+        <span class="job3-tag">20代で年収1,000万円</span>
+        <span class="job3-tag">賞与年3回</span>
+      </div>
+      <div class="job3-foot">
+        <div class="job3-btns">
+          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
+        </div>
+      </div>
+    </article>
+
     <!-- Card 3 -->
-    <div class="pick-card">
-      <div class="pick-card-thumb"><img src="images/ChatGPT Image 2026年5月25日 19_45_29.png" alt="株式会社翔陽"><span class="pick-card-salary">年収300〜1,500万円</span></div>
-      <div class="pick-card-main">
-        <div class="pick-card-company">株式会社翔陽</div>
-        <div class="pick-card-meta"><span>高価買取販売</span><span>一般営業職</span><span>フィールドセールス</span></div>
-        <div class="pick-card-tags">
-          <span class="pick-card-tag">完全学歴不問</span>
-          <span class="pick-card-tag">入社1か月でインセン50万円超え</span>
-          <span class="pick-card-tag">社宅・家賃制度あり</span>
+    <article class="job3-card" data-tags="mikeiken high fukuri">
+      <div class="job3-top">
+        <div class="job3-gallery">
+          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_29.png" alt="株式会社翔陽">
+          <div class="job3-thumbs">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_25.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_46_39.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_19.png" alt="">
+          </div>
+        </div>
+        <div class="job3-info">
+          <h3 class="job3-title">高価買取専門の営業｜完全学歴不問・入社1ヶ月でインセン50万円の実績</h3>
+          <dl class="job3-spec">
+            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">株式会社翔陽</dd></div>
+            <div class="job3-row"><dt>業種・職種</dt><dd>高価買取販売／一般営業職・フィールドセールス</dd></div>
+            <div class="job3-row"><dt>勤務地</dt><dd>東京都・大阪府ほか（社宅・家賃制度あり）</dd></div>
+            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">300万〜1,500万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
+          </dl>
         </div>
       </div>
-    </div>
+      <div class="job3-tags">
+        <span class="job3-tag">完全学歴不問</span>
+        <span class="job3-tag">高インセンティブ率</span>
+        <span class="job3-tag">社宅・家賃制度あり</span>
+      </div>
+      <div class="job3-foot">
+        <div class="job3-btns">
+          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
+        </div>
+      </div>
+    </article>
+
     <!-- Card 4 -->
-    <div class="pick-card">
-      <div class="pick-card-thumb"><img src="images/ChatGPT Image 2026年5月25日 19_45_39.png" alt="株式会社レオパレス21"><span class="pick-card-salary">年収330〜700万円</span></div>
-      <div class="pick-card-main">
-        <div class="pick-card-company">株式会社レオパレス21</div>
-        <div class="pick-card-meta"><span>賃貸カウンター営業</span><span>一般営業職</span><span>カウンターセールス</span></div>
-        <div class="pick-card-tags">
-          <span class="pick-card-tag">賞与平均118万円</span>
-          <span class="pick-card-tag">年間休日123日</span>
-          <span class="pick-card-tag">定着率90%</span>
+    <article class="job3-card" data-tags="weekend holiday fukuri">
+      <div class="job3-top">
+        <div class="job3-gallery">
+          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_39.png" alt="株式会社レオパレス21">
+          <div class="job3-thumbs">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_43.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_52.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_29.png" alt="">
+          </div>
+        </div>
+        <div class="job3-info">
+          <h3 class="job3-title">賃貸カウンター営業｜賞与平均118万円・3年定着率90%の安定環境</h3>
+          <dl class="job3-spec">
+            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">株式会社レオパレス21</dd></div>
+            <div class="job3-row"><dt>業種・職種</dt><dd>賃貸カウンター営業／一般営業職・カウンターセールス</dd></div>
+            <div class="job3-row"><dt>勤務地</dt><dd>東京都（年間休日123日）</dd></div>
+            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">330万〜700万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
+          </dl>
         </div>
       </div>
-    </div>
+      <div class="job3-tags">
+        <span class="job3-tag">土日祝休み</span>
+        <span class="job3-tag">年間休日123日</span>
+        <span class="job3-tag">定着率90%</span>
+      </div>
+      <div class="job3-foot">
+        <div class="job3-btns">
+          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
+        </div>
+      </div>
+    </article>
+
     <!-- Card 5 -->
-    <div class="pick-card">
-      <div class="pick-card-thumb"><img src="images/ChatGPT Image 2026年5月25日 19_45_43.png" alt="大東建託株式会社"><span class="pick-card-salary">年収360〜1,000万円</span></div>
-      <div class="pick-card-main">
-        <div class="pick-card-company">大東建託株式会社</div>
-        <div class="pick-card-meta"><span>不動産営業</span><span>一般営業職</span><span>フィールドセールス</span></div>
-        <div class="pick-card-tags">
-          <span class="pick-card-tag">未経験・第二新卒歓迎</span>
-          <span class="pick-card-tag">土日休み</span>
-          <span class="pick-card-tag">初年度年収1000万目指せる</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Locked cards (blurred) -->
-    <div class="pick-locked">
-      <div class="pick-card pick-card--blur">
-        <div class="pick-card-thumb"><img src="images/ChatGPT Image 2026年5月25日 19_45_52.png" alt=""><span class="pick-card-salary">年収528〜1,200万円</span></div>
-        <div class="pick-card-main">
-          <div class="pick-card-company">株式会社オープンハウスグループ</div>
-          <div class="pick-card-meta"><span>不動産営業</span><span>一般営業職</span><span>フィールドセールス</span></div>
-          <div class="pick-card-tags">
-            <span class="pick-card-tag">未経験スタート90%</span>
-            <span class="pick-card-tag">年4回昇格チャンス</span>
+    <article class="job3-card" data-tags="mikeiken weekend holiday high">
+      <div class="job3-top">
+        <div class="job3-gallery">
+          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_43.png" alt="大東建託株式会社">
+          <div class="job3-thumbs">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_52.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_57.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_34.png" alt="">
           </div>
         </div>
-      </div>
-      <div class="pick-card pick-card--blur">
-        <div class="pick-card-thumb"><img src="images/ChatGPT Image 2026年5月25日 19_45_57.png" alt=""><span class="pick-card-salary">年収450〜1,300万円</span></div>
-        <div class="pick-card-main">
-          <div class="pick-card-company">非公開求人</div>
-          <div class="pick-card-meta"><span>IT・SaaS営業</span><span>一般営業職</span><span>インサイドセールス</span></div>
-          <div class="pick-card-tags">
-            <span class="pick-card-tag">フルリモート可</span>
-            <span class="pick-card-tag">インセンティブ高水準</span>
-          </div>
+        <div class="job3-info">
+          <h3 class="job3-title">不動産営業｜未経験・第二新卒歓迎・初年度から年収1,000万円も狙える</h3>
+          <dl class="job3-spec">
+            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">大東建託株式会社</dd></div>
+            <div class="job3-row"><dt>業種・職種</dt><dd>不動産営業／一般営業職・フィールドセールス</dd></div>
+            <div class="job3-row"><dt>勤務地</dt><dd>東京都（土日祝休み）</dd></div>
+            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">360万〜1,000万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
+          </dl>
         </div>
       </div>
+      <div class="job3-tags">
+        <span class="job3-tag">未経験・第二新卒歓迎</span>
+        <span class="job3-tag">土日祝休み</span>
+        <span class="job3-tag">初年度1,000万円も</span>
+      </div>
+      <div class="job3-foot">
+        <div class="job3-btns">
+          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
+        </div>
+      </div>
+    </article>
 
-      <!-- Overlay: もっと見る → アンケート(会員登録)へ -->
-      <a href="#contact" class="pick-more">
-        <span class="pick-more-lock">🔒</span>
-        <span class="pick-more-title">続きの求人を見る</span>
-        <span class="pick-more-text">あなたを<strong>欲しがっている企業が何社あるか</strong>、<br>30秒の質問に答えるだけで今すぐわかります。</span>
-        <span class="pick-more-btn">無料で残りの求人を見る ▼</span>
-      </a>
-    </div>
+    <!-- Card 6 -->
+    <article class="job3-card" data-tags="high fukuri">
+      <div class="job3-top">
+        <div class="job3-gallery">
+          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_52.png" alt="ケイアイスター不動産株式会社">
+          <div class="job3-thumbs">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_57.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_25.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_19.png" alt="">
+          </div>
+        </div>
+        <div class="job3-info">
+          <h3 class="job3-title">不動産営業｜ホワイト企業認定プラチナ・入社2年で年収1,200万円実績</h3>
+          <dl class="job3-spec">
+            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">ケイアイスター不動産株式会社</dd></div>
+            <div class="job3-row"><dt>業種・職種</dt><dd>不動産営業／一般営業職・フィールドセールス</dd></div>
+            <div class="job3-row"><dt>勤務地</dt><dd>全国各拠点（住宅購入手当・家族手当など手当豊富）</dd></div>
+            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">300万〜700万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="job3-tags">
+        <span class="job3-tag">ホワイト企業認定プラチナ</span>
+        <span class="job3-tag">入社2年で1,200万円実績</span>
+        <span class="job3-tag">手当が豊富</span>
+      </div>
+      <div class="job3-foot">
+        <div class="job3-btns">
+          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 7 -->
+    <article class="job3-card" data-tags="mikeiken high">
+      <div class="job3-top">
+        <div class="job3-gallery">
+          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_57.png" alt="大和財託株式会社">
+          <div class="job3-thumbs">
+            <img src="images/ChatGPT Image 2026年5月25日 19_46_39.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_43.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_34.png" alt="">
+          </div>
+        </div>
+        <div class="job3-info">
+          <h3 class="job3-title">不動産営業｜完全反響営業・飛び込み&テレアポ一切なしで1,000万円も</h3>
+          <dl class="job3-spec">
+            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">大和財託株式会社</dd></div>
+            <div class="job3-row"><dt>業種・職種</dt><dd>不動産営業／一般営業職・フィールドセールス</dd></div>
+            <div class="job3-row"><dt>勤務地</dt><dd>東京都・大阪府ほか（完全反響営業）</dd></div>
+            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">536万〜1,500万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="job3-tags">
+        <span class="job3-tag">未経験から1,000万円</span>
+        <span class="job3-tag">完全反響営業</span>
+        <span class="job3-tag">ホワイト企業認定プラチナ</span>
+      </div>
+      <div class="job3-foot">
+        <div class="job3-btns">
+          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 8 -->
+    <article class="job3-card" data-tags="mikeiken high fukuri">
+      <div class="job3-top">
+        <div class="job3-gallery">
+          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_46_39.png" alt="株式会社貴瞬">
+          <div class="job3-thumbs">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_29.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_39.png" alt="">
+            <img src="images/ChatGPT Image 2026年5月25日 19_45_25.png" alt="">
+          </div>
+        </div>
+        <div class="job3-info">
+          <h3 class="job3-title">高価買取販売の営業｜未経験大歓迎・入社3ヶ月で主任昇格実績あり</h3>
+          <dl class="job3-spec">
+            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">株式会社貴瞬</dd></div>
+            <div class="job3-row"><dt>業種・職種</dt><dd>高価買取販売／一般営業職・フィールドセールス</dd></div>
+            <div class="job3-row"><dt>勤務地</dt><dd>東京都（上場を目指す急成長企業）</dd></div>
+            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">350万〜2,000万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="job3-tags">
+        <span class="job3-tag">未経験大歓迎</span>
+        <span class="job3-tag">年収1,000万円OVER実績</span>
+        <span class="job3-tag">福利厚生充実</span>
+      </div>
+      <div class="job3-foot">
+        <div class="job3-btns">
+          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
+        </div>
+      </div>
+    </article>
   </div>
 
-  <!-- CTA in Job Section -->
-  <div class="cta-section" style="margin-top:20px;">
-    <div class="reward-card">
-      <div class="reward-badge">面談参加者 全員サポート</div>
-      <p class="reward-lead">あなたの内定までを一気通貫で</p>
-      <h3 class="reward-title">内定獲得<span class="reward-title-em">フルサポート</span></h3>
-      <p class="reward-usp">直接契約だから、<strong>その企業の“受かる答え”を知っている。</strong><br>だから、書類通過率<strong class="reward-usp-num">90%</strong>。</p>
-      <div class="reward-items">
-        <div class="reward-item">
-          <div class="reward-item-thumb">
-            <span class="reward-item-no">01</span>
-            <span class="reward-item-ico">🗣️</span>
-          </div>
-          <div class="reward-item-body">
-            <div class="reward-item-name">面接対策</div>
-            <div class="reward-item-desc">「この企業がどんな人を採るか」を直接契約だから把握。受かる答え方を企業ごとに伝授。</div>
-          </div>
-        </div>
-        <div class="reward-item">
-          <div class="reward-item-thumb">
-            <span class="reward-item-no">02</span>
-            <span class="reward-item-ico">📄</span>
-          </div>
-          <div class="reward-item-body">
-            <div class="reward-item-name">職務経歴書作成</div>
-            <div class="reward-item-desc">未経験でも評価される書き方を二人三脚で。書類通過率90%の型に沿って一緒に作成。</div>
-          </div>
-        </div>
-        <div class="reward-item">
-          <div class="reward-item-thumb">
-            <span class="reward-item-no">03</span>
-            <span class="reward-item-ico">✍️</span>
-          </div>
-          <div class="reward-item-body">
-            <div class="reward-item-name">履歴書作成</div>
-            <div class="reward-item-desc">志望動機が思いつかなくても大丈夫。あなたの強みを引き出し、刺さる一枚に仕上げます。</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cta-buttons">
-      <a href="https://timerex.net/s/satooka-r_288d/25061ec6" target="_blank" rel="noopener" class="btn-primary">
-        <span class="btn-primary-label"><span class="btn-free">無料</span> 今すぐキャリア面談を調整</span>
-        <span class="btn-primary-sub">※外部サービスへリンクします</span>
-      </a>
-      <a href="#entryForm" class="btn-secondary"><span>求人をもっと見てみる</span></a>
-    </div>
-  </div>
 </section>
 
-<!-- SUCCESS VOICE SECTION -->
-<section class="voice-section">
-  <div style="text-align:center;margin-bottom:28px;">
-    <h2 class="section-title">転職成功者の声</h2>
-    <span class="section-title-bar"></span>
-  </div>
-
-  <div class="voice-marquee">
-    <div class="voice-track" id="voiceTrack">
-      <!-- Voice 1 -->
-      <div class="voice-card">
-        <img src="images/avatar-1.png" alt="転職成功者" class="voice-avatar">
-        <div class="voice-age">20代後半</div>
-        <div class="voice-quote">
-          "<strong>最後まで親身にフォロー</strong>してくれました。"
-        </div>
-        <div class="voice-career">
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職前</span>
-            <span class="voice-career-job">飲食店員</span>
-          </div>
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職後</span>
-            <span class="voice-career-job">住宅設備の営業員</span>
-          </div>
-        </div>
-        <img src="images/Frame 44.png" alt="転職で年収400万円UP!!" class="voice-salary-img">
-        <div class="voice-detail">
-          <div class="voice-detail-label">転職理由</div>
-          <div class="voice-detail-tags">
-            <span class="voice-detail-tag">年収アップ</span>
-            <span class="voice-detail-tag">営業スキルを学びたい</span>
-          </div>
-        </div>
-        <div class="voice-detail">
-          <div class="voice-detail-label">利用の決め手</div>
-          <div class="voice-detail-text">未経験でも高月給スタートできる点が魅力的でした。</div>
-        </div>
-      </div>
-
-      <!-- Voice 2 -->
-      <div class="voice-card">
-        <img src="images/avatar-2.png" alt="転職成功者" class="voice-avatar">
-        <div class="voice-age">20代後半</div>
-        <div class="voice-quote">
-          "何度でも<strong>嫌な顔ひとつせず相談に乗ってくれた</strong>のが心強かったです。"
-        </div>
-        <div class="voice-career">
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職前</span>
-            <span class="voice-career-job">職人／現場作業員</span>
-          </div>
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職後</span>
-            <span class="voice-career-job">店舗販売スタッフ</span>
-          </div>
-        </div>
-        <img src="images/Frame 44 (1).png" alt="転職で年収400万円UP!!" class="voice-salary-img">
-        <div class="voice-detail">
-          <div class="voice-detail-label">転職理由</div>
-          <div class="voice-detail-tags">
-            <span class="voice-detail-tag">販売職へ挑戦</span>
-            <span class="voice-detail-tag">正社員になりたい</span>
-          </div>
-        </div>
-        <div class="voice-detail">
-          <div class="voice-detail-label">利用の決め手</div>
-          <div class="voice-detail-text">一人では書類も面接も全く通らず、困っていたため。</div>
-        </div>
-      </div>
-
-      <!-- Voice 3 -->
-      <div class="voice-card">
-        <img src="images/avatar-3.png" alt="転職成功者" class="voice-avatar">
-        <div class="voice-age">20代前半</div>
-        <div class="voice-quote">
-          "<strong>レスポンスが早く</strong>、安心して進められました。"
-        </div>
-        <div class="voice-career">
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職前</span>
-            <span class="voice-career-job">一般事務スタッフ</span>
-          </div>
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職後</span>
-            <span class="voice-career-job">採用人事スタッフ</span>
-          </div>
-        </div>
-        <img src="images/Frame 44 (1).png" alt="転職で年収400万円UP!!" class="voice-salary-img">
-        <div class="voice-detail">
-          <div class="voice-detail-label">転職理由</div>
-          <div class="voice-detail-tags">
-            <span class="voice-detail-tag">人事職へ挑戦</span>
-          </div>
-        </div>
-        <div class="voice-detail">
-          <div class="voice-detail-label">利用の決め手</div>
-          <div class="voice-detail-text">未経験の人事職は求人が少なく、一人では難しいと感じたため。</div>
-        </div>
-      </div>
-
-      <!-- Duplicate set for seamless loop -->
-      <div class="voice-card" aria-hidden="true">
-        <img src="images/avatar-1.png" alt="" class="voice-avatar">
-        <div class="voice-age">20代後半</div>
-        <div class="voice-quote">
-          "<strong>最後まで親身にフォロー</strong>してくれました。"
-        </div>
-        <div class="voice-career">
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職前</span>
-            <span class="voice-career-job">飲食店員</span>
-          </div>
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職後</span>
-            <span class="voice-career-job">住宅設備の営業員</span>
-          </div>
-        </div>
-        <img src="images/Frame 44.png" alt="" class="voice-salary-img">
-        <div class="voice-detail">
-          <div class="voice-detail-label">転職理由</div>
-          <div class="voice-detail-tags">
-            <span class="voice-detail-tag">年収アップ</span>
-            <span class="voice-detail-tag">営業スキルを学びたい</span>
-          </div>
-        </div>
-        <div class="voice-detail">
-          <div class="voice-detail-label">利用の決め手</div>
-          <div class="voice-detail-text">未経験でも高月給スタートできる点が魅力的でした。</div>
-        </div>
-      </div>
-      <div class="voice-card" aria-hidden="true">
-        <img src="images/avatar-2.png" alt="" class="voice-avatar">
-        <div class="voice-age">20代後半</div>
-        <div class="voice-quote">
-          "何度でも<strong>嫌な顔ひとつせず相談に乗ってくれた</strong>のが心強かったです。"
-        </div>
-        <div class="voice-career">
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職前</span>
-            <span class="voice-career-job">職人／現場作業員</span>
-          </div>
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職後</span>
-            <span class="voice-career-job">店舗販売スタッフ</span>
-          </div>
-        </div>
-        <img src="images/Frame 44 (1).png" alt="" class="voice-salary-img">
-        <div class="voice-detail">
-          <div class="voice-detail-label">転職理由</div>
-          <div class="voice-detail-tags">
-            <span class="voice-detail-tag">販売職へ挑戦</span>
-            <span class="voice-detail-tag">正社員になりたい</span>
-          </div>
-        </div>
-        <div class="voice-detail">
-          <div class="voice-detail-label">利用の決め手</div>
-          <div class="voice-detail-text">一人では書類も面接も全く通らず、困っていたため。</div>
-        </div>
-      </div>
-      <div class="voice-card" aria-hidden="true">
-        <img src="images/avatar-3.png" alt="" class="voice-avatar">
-        <div class="voice-age">20代前半</div>
-        <div class="voice-quote">
-          "<strong>レスポンスが早く</strong>、安心して進められました。"
-        </div>
-        <div class="voice-career">
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職前</span>
-            <span class="voice-career-job">一般事務スタッフ</span>
-          </div>
-          <div class="voice-career-row">
-            <span class="voice-career-tag">転職後</span>
-            <span class="voice-career-job">採用人事スタッフ</span>
-          </div>
-        </div>
-        <img src="images/Frame 44 (1).png" alt="" class="voice-salary-img">
-        <div class="voice-detail">
-          <div class="voice-detail-label">転職理由</div>
-          <div class="voice-detail-tags">
-            <span class="voice-detail-tag">人事職へ挑戦</span>
-          </div>
-        </div>
-        <div class="voice-detail">
-          <div class="voice-detail-label">利用の決め手</div>
-          <div class="voice-detail-text">未経験の人事職は求人が少なく、一人では難しいと感じたため。</div>
-        </div>
-      </div>
-    </div>
-    <button type="button" class="voice-nav-btn voice-nav-btn--prev" id="voicePrev" aria-label="前の声へ">‹</button>
-    <button type="button" class="voice-nav-btn voice-nav-btn--next" id="voiceNext" aria-label="次の声へ">›</button>
-  </div>
-</section>
 
 <!-- FINAL CTA + CONTACT FORM -->
 <section class="cta-section" id="contact">
-  <div class="reward-card">
-    <div class="reward-badge">面談参加者 全員サポート</div>
-    <p class="reward-lead">あなたの内定までを一気通貫で</p>
-    <h3 class="reward-title">内定獲得<span class="reward-title-em">フルサポート</span></h3>
-    <p class="reward-usp">直接契約だから、<strong>その企業の“受かる答え”を知っている。</strong><br>だから、書類通過率<strong class="reward-usp-num">90%</strong>。</p>
-    <div class="reward-items">
-      <div class="reward-item">
-        <div class="reward-item-thumb">
-          <span class="reward-item-no">01</span>
-          <span class="reward-item-ico">🗣️</span>
-        </div>
-        <div class="reward-item-body">
-          <div class="reward-item-name">面接対策</div>
-          <div class="reward-item-desc">「この企業がどんな人を採るか」を直接契約だから把握。受かる答え方を企業ごとに伝授。</div>
-        </div>
-      </div>
-      <div class="reward-item">
-        <div class="reward-item-thumb">
-          <span class="reward-item-no">02</span>
-          <span class="reward-item-ico">📄</span>
-        </div>
-        <div class="reward-item-body">
-          <div class="reward-item-name">職務経歴書作成</div>
-          <div class="reward-item-desc">未経験でも評価される書き方を二人三脚で。書類通過率90%の型に沿って一緒に作成。</div>
-        </div>
-      </div>
-      <div class="reward-item">
-        <div class="reward-item-thumb">
-          <span class="reward-item-no">03</span>
-          <span class="reward-item-ico">✍️</span>
-        </div>
-        <div class="reward-item-body">
-          <div class="reward-item-name">履歴書作成</div>
-          <div class="reward-item-desc">志望動機が思いつかなくても大丈夫。あなたの強みを引き出し、刺さる一枚に仕上げます。</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div style="padding:0 8px;margin-bottom:24px;">
-    <a href="https://timerex.net/s/satooka-r_288d/25061ec6" target="_blank" rel="noopener" class="btn-primary">
-      <span class="btn-primary-label"><span class="btn-free">無料</span> 今すぐキャリア面談を調整</span>
-      <span class="btn-primary-sub">※外部サービスへリンクします</span>
-    </a>
-  </div>
 
   <div class="chatbot-wrap" id="entryForm">
 
@@ -2567,148 +3369,72 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header class="chatbot-header">
       <div class="chatbot-header__logo">
         <img src="images/logo.png" alt="カイケツエージェント" class="chatbot-header__logo-en">
-        <div class="chatbot-header__status">
-          <span class="chatbot-header__status-dot"></span>専任アドバイザーが対応中
-        </div>
       </div>
-      <div class="chatbot-header__step" id="stepLabel">1/5</div>
+      <div class="chatbot-header__step" id="stepLabel" style="display:none;">1/1</div>
     </header>
 
     <!-- 進捗バー -->
-    <div class="progress"><div class="progress__bar" id="progressBar"></div></div>
+    <div class="progress" style="display:none;"><div class="progress__bar" id="progressBar"></div></div>
 
     <!-- チャット本体 -->
     <main class="chat" id="chat">
 
-      <!-- 初回挨拶 -->
-      <div class="msg msg--bot">
-        <div class="msg__avatar">K</div>
-        <div class="msg__bubble">
-          はじめまして！<br>
-          <strong>面談前の無料登録</strong>をお願いします。<br>
-          まずは簡単な5つの質問に<br>お答えください 😊<br>
-          回答後年収UPできる求人数を<br>確認できます🔥
-        </div>
-      </div>
-
-      <!-- 質問1: 転職時期 -->
+      <!-- 入力フォーム -->
       <div class="step active" data-step="1">
         <div class="msg msg--bot">
           <div class="msg__avatar">K</div>
           <div class="msg__bubble">
-            ご希望の<strong>転職時期</strong>を教えてください
-          </div>
-        </div>
-        <div class="options">
-          <button class="option-btn" data-value="今すぐ転職したい" data-highintent="true">
-            <span class="option-btn__icon">🔥</span>今すぐ転職したい
-          </button>
-          <button class="option-btn" data-value="3ヶ月以内に転職したい" data-highintent="true">
-            <span class="option-btn__icon">⚡</span>3ヶ月以内に転職したい
-          </button>
-          <button class="option-btn" data-value="半年以内">
-            <span class="option-btn__icon">🗓️</span>半年以内
-          </button>
-          <button class="option-btn" data-value="良い求人があれば検討">
-            <span class="option-btn__icon">👀</span>良い求人があれば検討
-          </button>
-          <button class="option-btn" data-value="まだわからない">
-            <span class="option-btn__icon">💭</span>まだわからない
-          </button>
-        </div>
-      </div>
-
-      <!-- 質問2: 年収帯 -->
-      <div class="step" data-step="2">
-        <div class="msg msg--bot">
-          <div class="msg__avatar">K</div>
-          <div class="msg__bubble">
-            現在の<strong>年収帯</strong>を教えてください 💰
-            <div class="msg__note">※おおよそで大丈夫です！</div>
-          </div>
-        </div>
-        <div class="options">
-          <button class="option-btn" data-value="〜300万円"><span class="option-btn__icon">💴</span>〜300万円</button>
-          <button class="option-btn" data-value="300〜400万円"><span class="option-btn__icon">💴</span>300〜400万円</button>
-          <button class="option-btn" data-value="400〜500万円"><span class="option-btn__icon">💴</span>400〜500万円</button>
-          <button class="option-btn" data-value="500〜600万円"><span class="option-btn__icon">💴</span>500〜600万円</button>
-          <button class="option-btn" data-value="600万円以上"><span class="option-btn__icon">💎</span>600万円以上</button>
-        </div>
-      </div>
-
-      <!-- 質問3: 職種 -->
-      <div class="step" data-step="3">
-        <div class="msg msg--bot">
-          <div class="msg__avatar">K</div>
-          <div class="msg__bubble">
-            今どんな<strong>お仕事</strong>をされていますか？ 💼
-            <div class="msg__note">一番近いものを選んでください！</div>
-          </div>
-        </div>
-        <div class="options">
-          <button class="option-btn" data-value="営業"><span class="option-btn__icon">📊</span>営業</button>
-          <button class="option-btn" data-value="販売・接客・サービス"><span class="option-btn__icon">🛍️</span>販売・接客・サービス</button>
-          <button class="option-btn" data-value="事務・管理"><span class="option-btn__icon">📋</span>事務・管理</button>
-          <button class="option-btn" data-value="企画・マーケティング"><span class="option-btn__icon">💡</span>企画・マーケティング</button>
-          <button class="option-btn" data-value="IT・エンジニア"><span class="option-btn__icon">💻</span>IT・エンジニア</button>
-          <button class="option-btn" data-value="製造・技術"><span class="option-btn__icon">⚙️</span>製造・技術</button>
-          <button class="option-btn" data-value="建築・土木"><span class="option-btn__icon">🏗️</span>建築・土木</button>
-          <button class="option-btn" data-value="物流・運輸・ドライバー"><span class="option-btn__icon">🚚</span>物流・運輸・ドライバー</button>
-          <button class="option-btn" data-value="医療・福祉"><span class="option-btn__icon">🏥</span>医療・福祉</button>
-          <button class="option-btn" data-value="その他"><span class="option-btn__icon">📦</span>その他</button>
-        </div>
-      </div>
-
-      <!-- 質問4: お名前・生まれ年 -->
-      <div class="step" data-step="4">
-        <div class="msg msg--bot">
-          <div class="msg__avatar">K</div>
-          <div class="msg__bubble">
-            <strong>お名前</strong>と<strong>生まれ年</strong>を教えてください ✍️
+            <strong>担当者に無料で相談</strong>できます 📝<br>
+            以下をご入力ください。
           </div>
         </div>
         <div class="input-area">
           <div class="input-row">
-            <label for="name">お名前<span class="required">必須</span></label>
-            <input type="text" id="name" placeholder="例：山田 太郎" autocomplete="name" required aria-required="true">
+            <label for="name">名前<span class="required">必須</span></label>
+            <input type="text" id="name" placeholder="例）山田 太郎" autocomplete="name" required aria-required="true">
             <div class="error-msg">お名前を入力してください</div>
           </div>
           <div class="input-row">
-            <label for="birthYear">生まれ年<span class="required">必須</span></label>
-            <select id="birthYear" required aria-required="true">
-              <option value="">選択してください</option>
-            </select>
-            <div class="error-msg">生まれ年を選択してください</div>
+            <label for="birth">生年月日<span class="required">必須</span></label>
+            <input type="text" id="birth" placeholder="例）1998/04/01" inputmode="numeric" autocomplete="bday" required aria-required="true">
+            <div class="error-msg">生年月日を入力してください</div>
           </div>
-          <button class="submit-btn" id="step4Submit">次へ進む</button>
-        </div>
-      </div>
-
-      <!-- 質問5: 連絡先 -->
-      <div class="step" data-step="5">
-        <div class="msg msg--bot">
-          <div class="msg__avatar">K</div>
-          <div class="msg__bubble">
-            最後に<strong>ご連絡先</strong>を教えてください📧
-            <div class="msg__note">※送信すると年収UPできる<br>求人数を確認できます！</div>
-          </div>
-        </div>
-        <div class="input-area">
           <div class="input-row">
             <label for="email">メールアドレス<span class="required">必須</span></label>
-            <input type="email" id="email" placeholder="例：example@kaiketsu.jp" autocomplete="email" inputmode="email" required aria-required="true">
+            <input type="email" id="email" placeholder="例）example@email.com" autocomplete="email" inputmode="email" required aria-required="true">
             <div class="error-msg">正しいメールアドレスを入力してください</div>
           </div>
           <div class="input-row">
             <label for="tel">電話番号<span class="required">必須</span></label>
-            <input type="tel" id="tel" placeholder="例：09012345678" autocomplete="tel" inputmode="tel" required aria-required="true">
-            <div class="input-row__hint">ハイフンなしでもOKです</div>
+            <input type="tel" id="tel" placeholder="例）090-1234-5678" autocomplete="tel" inputmode="tel" required aria-required="true">
             <div class="error-msg">正しい電話番号を入力してください</div>
           </div>
-          <button class="submit-btn" id="step5Submit">
-            無料登録して求人数を<br>確認してみる
-          </button>
-          <div class="submit-btn__note">送信後、年収UPできる<br>求人数をお見せします</div>
+          <div class="input-row">
+            <label for="timing">転職希望時期<span class="optional">任意</span></label>
+            <select id="timing">
+              <option value="">選んでください</option>
+              <option value="今すぐ転職したい">今すぐ転職したい</option>
+              <option value="3ヶ月以内に転職したい">3ヶ月以内に転職したい</option>
+              <option value="半年以内">半年以内</option>
+              <option value="良い求人があれば検討">良い求人があれば検討</option>
+              <option value="まだわからない">まだわからない</option>
+            </select>
+          </div>
+          <div class="input-row">
+            <label for="area">転職希望エリア<span class="optional">任意</span></label>
+            <select id="area">
+              <option value="">選んでください</option>
+              <option value="北海道・東北">北海道・東北</option>
+              <option value="関東">関東</option>
+              <option value="東海・中部">東海・中部</option>
+              <option value="関西">関西</option>
+              <option value="中国・四国">中国・四国</option>
+              <option value="九州・沖縄">九州・沖縄</option>
+              <option value="海外">海外</option>
+              <option value="こだわらない">こだわらない</option>
+            </select>
+          </div>
+          <button class="submit-btn" id="formSubmit">担当者に相談する</button>
         </div>
       </div>
 
@@ -2745,6 +3471,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- FOOTER -->
 <footer class="footer">
+  <a href="#entryForm" class="footer-cta">担当者に相談する</a>
   <img src="images/logo-white.png" alt="カイケツエージェント" class="footer-logo" style="height:28px;">
   <div class="footer-links">
     <a href="https://kai-ketsu.net/company/" target="_blank" rel="noopener noreferrer" class="footer-link">運営会社</a>
@@ -2752,6 +3479,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <p class="footer-copyright">© 2026 Kaiketsu.inc All Rights Reserved.</p>
 </footer>
+
+<!-- JOB DETAIL MODAL -->
+<div class="jobmodal" id="jobModal" hidden role="dialog" aria-modal="true" aria-label="求人詳細">
+  <div class="jobmodal__overlay" id="jobModalOverlay"></div>
+  <div class="jobmodal__panel">
+    <button type="button" class="jobmodal__close" id="jobModalClose" aria-label="閉じる">✕</button>
+    <div class="jobmodal__scroll" id="jobModalBody"><!-- JSで内容を挿入 --></div>
+  </div>
+</div>
 
 <!-- EXIT INTENT MODAL -->
 <div class="exit-modal" id="exitModal" role="dialog" aria-modal="true" aria-hidden="true">
@@ -2865,52 +3601,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   const state = {
     currentStep: 1,
-    totalSteps: 5,
+    totalSteps: 1,
     answers: {}
   };
 
   function init() {
-    populateBirthYears();
-    bindOptionButtons();
-    bindStep4();
-    bindStep5();
+    bindForm();
   }
 
-  function populateBirthYears() {
-    const sel = document.getElementById('birthYear');
-    const thisYear = new Date().getFullYear();
-    for (let y = thisYear - 21; y >= thisYear - 40; y--) {
-      const opt = document.createElement('option');
-      opt.value = y;
-      opt.textContent = y + '年';
-      sel.appendChild(opt);
-    }
-  }
-
-  function bindOptionButtons() {
-    document.querySelectorAll('.option-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const step = btn.closest('.step');
-        const stepNum = parseInt(step.dataset.step, 10);
-        const value = btn.dataset.value;
-
-        state.answers['q' + stepNum] = value;
-
-        step.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
-        btn.style.borderColor = 'var(--color-primary)';
-        btn.style.background = '#FFF5F6';
-
-        appendUserMessage(value, step);
-
-        setTimeout(() => goToStep(stepNum + 1), 600);
-      });
-    });
-  }
-
-  function bindStep4() {
-    document.getElementById('step4Submit').addEventListener('click', () => {
-      const nameInput = document.getElementById('name');
-      const birthSelect = document.getElementById('birthYear');
+  function bindForm() {
+    const submitBtn = document.getElementById('formSubmit');
+    if (!submitBtn) return;
+    submitBtn.addEventListener('click', () => {
+      const nameInput  = document.getElementById('name');
+      const birthInput = document.getElementById('birth');
+      const emailInput = document.getElementById('email');
+      const telInput   = document.getElementById('tel');
+      const timingInput = document.getElementById('timing');
+      const areaInput   = document.getElementById('area');
       let valid = true;
 
       if (!nameInput.value.trim()) {
@@ -2919,31 +3627,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       } else {
         nameInput.closest('.input-row').classList.remove('has-error');
       }
-      if (!birthSelect.value) {
-        birthSelect.closest('.input-row').classList.add('has-error');
+
+      if (birthInput && !birthInput.value.trim()) {
+        birthInput.closest('.input-row').classList.add('has-error');
         valid = false;
-      } else {
-        birthSelect.closest('.input-row').classList.remove('has-error');
+      } else if (birthInput) {
+        birthInput.closest('.input-row').classList.remove('has-error');
       }
-      if (!valid) return;
-
-      state.answers.name = nameInput.value.trim();
-      state.answers.birthYear = birthSelect.value;
-
-      const step = document.querySelector('[data-step="4"]');
-      step.querySelector('.input-area').style.display = 'none';
-      appendUserMessage(`${state.answers.name}（${state.answers.birthYear}年生まれ）`, step);
-
-      setTimeout(() => goToStep(5), 600);
-    });
-  }
-
-  function bindStep5() {
-    const submitBtn = document.getElementById('step5Submit');
-    submitBtn.addEventListener('click', () => {
-      const emailInput = document.getElementById('email');
-      const telInput = document.getElementById('tel');
-      let valid = true;
 
       const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRe.test(emailInput.value.trim())) {
@@ -2963,19 +3653,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
       if (!valid) return;
 
-      state.answers.email = emailInput.value.trim();
-      state.answers.tel = telDigits;
+      state.answers.name   = nameInput.value.trim();
+      state.answers.birth  = birthInput ? birthInput.value.trim() : '';
+      state.answers.email  = emailInput.value.trim();
+      state.answers.tel    = telDigits;
+      state.answers.timing = timingInput ? timingInput.value : '';
+      state.answers.area   = areaInput ? areaInput.value : '';
 
-      // EmailJS テンプレートに渡すパラメータ（チャットの質問順）
+      // EmailJS テンプレートに渡すパラメータ
       const templateParams = {
         page_url:     location.href,
-        timing:       state.answers.q1 || '',                                       // Q1 希望時期
-        income:       state.answers.q2 || '',                                       // Q2 年収帯
-        job_category: state.answers.q3 || '',                                       // Q3 職種
-        name:         state.answers.name || '',                                     // Q4 お名前
-        birthdate:    state.answers.birthYear ? state.answers.birthYear + '年' : '', // Q4 生まれ年
-        email:        state.answers.email,                                          // Q5 メール
-        tel:          state.answers.tel                                             // Q5 電話
+        timing:       state.answers.timing,  // 転職希望時期（任意）
+        area:         state.answers.area,    // 転職希望エリア（任意）
+        income:       '',
+        job_category: '',
+        birthdate:    state.answers.birth,   // 生年月日
+        name:         state.answers.name,    // 名前
+        email:        state.answers.email,   // メールアドレス
+        tel:          state.answers.tel      // 電話番号
       };
 
       const originalLabel = submitBtn.innerHTML;
@@ -3164,22 +3859,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 // === KV Question -> Count-up -> Reveal LP body ===
 (function () {
-  const COUNTS = { none: 8522, experienced: 11526 };
+  // 経験 × 年収帯 ごとの表示求人数
+  const COUNTS = {
+    none: {        // 未経験求人
+      '300':     8529,
+      '300-400': 4187,
+      '400-500': 1342,
+      '500-600': 276,
+      '600':     33
+    },
+    experienced: { // 経験者求人
+      '300':     11543,
+      '300-400': 8264,
+      '400-500': 4571,
+      '500-600': 1928,
+      '600':     583
+    }
+  };
   const LABELS = {
     none: '未経験OKの営業求人',
     experienced: '経験を活かせる営業求人'
   };
+  const EXP_LABELS = { none: '未経験', experienced: '経験者' };
+  const INCOME_LABELS = {
+    '300': '〜300万円',
+    '300-400': '300〜400万円',
+    '400-500': '400〜500万円',
+    '500-600': '500〜600万円',
+    '600': '600万円以上'
+  };
+  // 選択年収に応じて「目指せる年収」を変化させる（年収UP訴求）
+  const INCOME_TARGET = {
+    '300': '400万円以上',
+    '300-400': '500万円以上',
+    '400-500': '600万円以上',
+    '500-600': '700万円以上',
+    '600': '800万円以上'
+  };
 
   const stepQ = document.getElementById('kvStepQuestion');
+  const stepI = document.getElementById('kvStepIncome');
   const stepR = document.getElementById('kvStepResult');
   const numEl = document.getElementById('kvCountNum');
   const labelEl = document.getElementById('kvResultLabel');
   const lpBody = document.getElementById('lpBody');
   const backBtn = document.getElementById('kvBack');
+  const backToQBtn = document.getElementById('kvBackToQ');
   const showMoreBtn = document.getElementById('kvShowMore');
-  const qBtns = document.querySelectorAll('.kv-q-btn');
+  const qBtns = document.querySelectorAll('.kv-q-btn:not(.kv-income-btn)');
+  const incomeBtns = document.querySelectorAll('.kv-income-btn');
+  const selExpEl = document.getElementById('kvSelExp');
+  const selIncomeEl = document.getElementById('kvSelIncome');
+  const nowIncomeEl = document.getElementById('kvNowIncome');
+  const targetIncomeEl = document.getElementById('kvTargetIncome');
 
-  if (!stepQ || !stepR || !numEl || !lpBody) return;
+  let selectedExp = null;
+
+  if (!stepQ || !stepI || !stepR || !numEl || !lpBody) return;
 
   function animateCount(target) {
     const duration = 1400; // ms
@@ -3196,27 +3932,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     requestAnimationFrame(frame);
   }
 
+  // STEP1: 経験を選択 → 年収ステップへ
   qBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const exp = btn.dataset.experience;
-      const target = COUNTS[exp];
-      labelEl.textContent = LABELS[exp];
+      selectedExp = btn.dataset.experience;
+      stepQ.classList.remove('is-active');
+      stepI.classList.add('is-active');
+    });
+  });
+
+  // STEP2: 年収を選択 → 結果表示
+  incomeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const income = btn.dataset.income;
+      const exp = selectedExp || 'none';
+      const target = (COUNTS[exp] && COUNTS[exp][income]) || 0;
+
+      // 結果ラベル
+      if (labelEl) labelEl.textContent = LABELS[exp];
       numEl.textContent = '0';
 
-      stepQ.classList.remove('is-active');
+      // 選択内容サマリー（選択に応じて表記が変化）
+      if (selExpEl) selExpEl.textContent = EXP_LABELS[exp];
+      if (selIncomeEl) selIncomeEl.textContent = '現在 ' + INCOME_LABELS[income];
+
+      // 年収UP訴求（選択した年収に応じて目標年収が変化）
+      if (nowIncomeEl) nowIncomeEl.textContent = INCOME_LABELS[income];
+      if (targetIncomeEl) targetIncomeEl.textContent = INCOME_TARGET[income];
+
+      stepI.classList.remove('is-active');
       stepR.classList.add('is-active');
 
       // 結果表示と同時にLP本体も解放
       lpBody.hidden = false;
+
+      // ピックアップ求人の「厳選求人」数をFVの求人数と合わせる
+      const jobStatCount = document.getElementById('jobStatCount');
+      if (jobStatCount) jobStatCount.textContent = target.toLocaleString();
 
       // Start counting after fade-in begins
       setTimeout(() => animateCount(target), 200);
     });
   });
 
+  // 年収ステップ → 経験選択へ戻る
+  backToQBtn?.addEventListener('click', () => {
+    stepI.classList.remove('is-active');
+    stepQ.classList.add('is-active');
+  });
+
+  // 結果 → 年収選択へ戻る
   backBtn?.addEventListener('click', () => {
     stepR.classList.remove('is-active');
-    stepQ.classList.add('is-active');
+    stepI.classList.add('is-active');
     lpBody.hidden = true;
   });
 
@@ -3229,6 +3997,327 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const first = lpBody.querySelector('section, .logos-section');
       if (first) first.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  });
+})();
+</script>
+
+<script>
+// === ピックアップ求人 絞り込み（絞り込むと該当求人をモザイク化→会員登録誘導） ===
+(function () {
+  const chips    = document.querySelectorAll('.pick-chip');
+  const toggle   = document.getElementById('pickFilterToggle');
+  const chipWrap = document.getElementById('pickFilterChips');
+  const list     = document.getElementById('pickList');
+
+  // こだわり条件：ボタンを押すと条件をまとめて開閉
+  if (toggle && chipWrap) {
+    toggle.addEventListener('click', () => {
+      const open = chipWrap.hasAttribute('hidden');
+      if (open) { chipWrap.removeAttribute('hidden'); }
+      else { chipWrap.setAttribute('hidden', ''); }
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  const lockbar  = document.getElementById('pickLockbar');
+  const labelEl  = document.getElementById('pickLockLabel');
+  const countEl  = document.getElementById('pickLockCount');
+  const locked   = document.getElementById('pickLocked');
+  if (!chips.length || !list) return;
+
+  const cards = Array.from(list.querySelectorAll('.job3-card')).filter(c => c.dataset.tags);
+  // DOM順に 1..N の固定IDを付与（カード1=コレック … カード5=大東建託）
+  cards.forEach((c, i) => { c.dataset.id = String(i + 1); });
+  const cardById = id => cards.find(c => c.dataset.id === String(id));
+
+  const LABELS = {
+    '一般営業・新規開拓営業':         '「一般営業・新規開拓営業」',
+    'インサイドセールス':             '「インサイドセールス」',
+    'フィールドセールス':             '「フィールドセールス」',
+    '既存営業・ルート営業':           '「既存営業・ルート営業」',
+    'カスタマーサクセス':             '「カスタマーサクセス」',
+    'カスタマーサポート':             '「カスタマーサポート」',
+    '代理店営業・パートナーセールス': '「代理店営業・パートナーセールス」',
+    '営業企画・営業推進':             '「営業企画・営業推進」',
+    '営業管理職・マネージャー':       '「営業管理職・マネージャー」',
+    '技術営業・専門営業':             '「技術営業・専門営業」'
+  };
+
+  // カテゴリ（職種）ごとの表示順（全カードを表示しつつ、並び順を毎回変えて「絞り込まれた」ことを明確にする）
+  // 1コレック 2新日本住設 3翔陽 4レオパレス 5大東建託 6ケイアイスター 7大和財託 8貴瞬
+  const ORDER = {
+    all:                            [1, 2, 3, 4, 5, 6, 7, 8],
+    '一般営業・新規開拓営業':         [5, 3, 8, 1, 7, 2, 4, 6],
+    'インサイドセールス':             [2, 6, 8, 5, 3, 7, 1, 4],
+    'フィールドセールス':             [5, 4, 1, 2, 3, 6, 7, 8],
+    '既存営業・ルート営業':           [4, 5, 8, 3, 2, 1, 7, 6],
+    'カスタマーサクセス':             [4, 1, 3, 8, 6, 5, 2, 7],
+    'カスタマーサポート':             [1, 4, 5, 2, 8, 6, 3, 7],
+    '代理店営業・パートナーセールス': [4, 2, 6, 8, 1, 3, 5, 7],
+    '営業企画・営業推進':             [6, 3, 1, 7, 4, 8, 2, 5],
+    '営業管理職・マネージャー':       [7, 8, 2, 5, 1, 4, 6, 3],
+    '技術営業・専門営業':             [3, 5, 7, 1, 6, 2, 8, 4]
+  };
+
+  function applyOrder(ids) {
+    const set = new Set(ids);
+    // 表示するカードを指定の順番で並べ替え（DOM末尾へ移動＝その順で表示）
+    ids.forEach(id => {
+      const card = cardById(id);
+      if (card) { card.hidden = false; list.appendChild(card); }
+    });
+    // 該当しないカードは非表示
+    cards.forEach(c => { if (!set.has(Number(c.dataset.id))) c.hidden = true; });
+    // ロック済みカードは常に末尾へ
+    if (locked) list.appendChild(locked);
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      const f = chip.dataset.filter;
+      const ids = ORDER[f] || cards.map(c => Number(c.dataset.id));
+
+      if (f === 'all') {
+        // すべて表示・モザイク解除・元の並び順に戻す
+        applyOrder(ids);
+        list.classList.remove('is-filtered');
+        if (lockbar) lockbar.hidden = true;
+        if (locked) locked.hidden = false;
+        return;
+      }
+
+      // 該当求人だけを「条件ごとの順番」で表示し、モザイク化
+      applyOrder(ids);
+      list.classList.add('is-filtered');
+      if (locked) locked.hidden = true;            // 既存のロック済みカードは隠す
+      if (labelEl) labelEl.textContent = LABELS[f] || 'この条件';
+      if (countEl) countEl.textContent = ids.length;
+      if (lockbar) {
+        lockbar.hidden = false;
+        lockbar.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+// === 求人詳細モーダル（全画面） ===
+(function () {
+  const modal    = document.getElementById('jobModal');
+  const body     = document.getElementById('jobModalBody');
+  const closeBtn = document.getElementById('jobModalClose');
+  const overlay  = document.getElementById('jobModalOverlay');
+  if (!modal || !body) return;
+
+  const EMAILJS_SERVICE_ID  = "service_a99wf04";
+  const EMAILJS_TEMPLATE_ID = "template_d7ltcxf";
+
+  // 会社名をキーにした追加情報（会社概要・仕事内容・人物像・未経験可否・キャリア）
+  const JOBS = {
+    '株式会社コレックホールディングス': {
+      overview: '住宅設備の販売・提案を手がける成長企業。未経験から営業力を磨ける教育体制が強みです。',
+      content:  '個人宅・法人向けに住宅設備（給湯器・リフォーム等）の提案営業。ヒアリングからご契約までを担当します。',
+      persona:  '人と話すのが好きな方／成長意欲のある方／チームで成果を出したい方。',
+      mikeiken: '◎ 未経験歓迎（入社後2週間の研修あり）',
+      career:   '営業 → リーダー → 副部長（入社1年以内の昇格実績あり）→ 管理職'
+    },
+    '新日本住設株式会社': {
+      overview: '太陽光・蓄電池など住宅設備を扱うハウスメーカー。手厚いインセンティブで高収入を狙えます。',
+      content:  '個人宅向けに省エネ住宅設備の提案営業。アポイント訪問からクロージングまでを担当します。',
+      persona:  '稼ぎたい意欲の高い方／行動量を出せる方／20代で大きく成長したい方。',
+      mikeiken: '◎ 未経験歓迎（未経験でも理論年収400万円超え）',
+      career:   '営業 → トップセールス → マネージャー（20代で年収1,000万円も）'
+    },
+    '株式会社翔陽': {
+      overview: 'ブランド品・貴金属等の高価買取を展開。完全学歴不問・実力主義の評価制度です。',
+      content:  '来店・出張買取での査定・提案営業。高いインセンティブ率で成果が収入に直結します。',
+      persona:  '学歴に自信がなくても挑戦したい方／インセンティブで大きく稼ぎたい方。',
+      mikeiken: '◎ 未経験歓迎（完全学歴不問）',
+      career:   '営業 → 主任 → マネージャー（月200万円インセン実績あり）'
+    },
+    '株式会社レオパレス21': {
+      overview: '賃貸物件の仲介・管理を全国展開。安定した環境と高い定着率が魅力です。',
+      content:  '来店されたお客様への賃貸物件のご提案・契約手続き（カウンターセールス）。',
+      persona:  '安定して長く働きたい方／接客が好きな方／土日祝休みで働きたい方。',
+      mikeiken: '◎ 未経験歓迎',
+      career:   'カウンター営業 → 店長 → エリアマネージャー'
+    },
+    '大東建託株式会社': {
+      overview: '賃貸住宅の建設・管理で業界大手。未経験・第二新卒の採用に積極的です。',
+      content:  '土地オーナーへの賃貸経営のご提案営業（フィールドセールス）。',
+      persona:  '大きく稼ぎたい方／未経験から不動産を学びたい方／第二新卒の方。',
+      mikeiken: '◎ 未経験・第二新卒歓迎',
+      career:   '営業 → 主任 → 支店長（初年度から年収1,000万円も狙える）'
+    },
+    'ケイアイスター不動産株式会社': {
+      overview: '分譲住宅を全国展開する上場企業。ホワイト企業認定の最高ランク「プラチナ」を取得しています。',
+      content:  '戸建分譲の販売・提案営業。手当が豊富で腰を据えて働ける環境です。',
+      persona:  '長く安定して働きたい方／福利厚生・働きやすさを重視する方。',
+      mikeiken: '◎ 未経験歓迎',
+      career:   '営業 → リーダー → 管理職（入社2年で年収1,200万円実績あり）'
+    },
+    '大和財託株式会社': {
+      overview: '資産運用コンサルを手がける急成長企業。創業以来、増収増益を続けています。',
+      content:  '完全反響営業による資産形成のご提案。飛び込み・テレアポ架電は一切ありません。',
+      persona:  '提案力をじっくり磨きたい方／反響営業で顧客と向き合いたい方。',
+      mikeiken: '◎ 未経験歓迎（未経験からでも年収1,000万円を目指せる）',
+      career:   '営業 → コンサルタント → マネージャー'
+    },
+    '株式会社貴瞬': {
+      overview: '高価買取を全国展開する、上場を目指す急成長企業。人物重視の採用です。',
+      content:  '買取の査定・提案営業。高インセンティブ制度で収入は青天井です。',
+      persona:  '未経験から大きく稼ぎたい方／成長企業で挑戦したい方。',
+      mikeiken: '◎ 未経験大歓迎（人物重視採用）',
+      career:   '営業 → 主任（入社3ヶ月で昇格実績）→ マネージャー（年収1,000万円OVER実績）'
+    }
+  };
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function openModal(card) {
+    const company = (card.querySelector('.job3-company') || {}).textContent || '';
+    const data    = JOBS[company.trim()] || {};
+    const img     = (card.querySelector('.job3-main') || {}).getAttribute ? card.querySelector('.job3-main').getAttribute('src') : '';
+    const title   = (card.querySelector('.job3-title') || {}).textContent || '';
+    const salary  = (card.querySelector('.job3-salary-num') || {}).textContent || '';
+    const tags    = Array.from(card.querySelectorAll('.job3-tag'))
+      .map(t => `<span class="jobd-tag">${esc(t.textContent)}</span>`).join('');
+
+    body.innerHTML =
+      `<div class="jobd-hero"><img src="${esc(img)}" alt=""></div>` +
+      `<div class="jobd-head">` +
+        `<div class="jobd-tags">${tags}</div>` +
+        `<h2 class="jobd-title">${esc(title)}</h2>` +
+        `<div class="jobd-company">${esc(company.trim())}</div>` +
+      `</div>` +
+      `<dl class="jobd-sections">` +
+        `<div class="jobd-sec"><dt>会社概要</dt><dd>${esc(data.overview || '※詳細は面談でご案内します。')}</dd></div>` +
+        `<div class="jobd-sec"><dt>年収レンジ</dt><dd class="jobd-salary">${esc(salary)}</dd></div>` +
+        `<div class="jobd-sec"><dt>仕事内容</dt><dd>${esc(data.content || '※詳細は面談でご案内します。')}</dd></div>` +
+        `<div class="jobd-sec"><dt>向いている人物像</dt><dd>${esc(data.persona || '※詳細は面談でご案内します。')}</dd></div>` +
+        `<div class="jobd-sec"><dt>未経験可否</dt><dd>${esc(data.mikeiken || '※詳細は面談でご案内します。')}</dd></div>` +
+        `<div class="jobd-sec"><dt>キャリアアップイメージ</dt><dd>${esc(data.career || '※詳細は面談でご案内します。')}</dd></div>` +
+      `</dl>` +
+      `<div class="jobd-formwrap" id="jobdForm">` +
+        `<div class="jobd-form-head">この求人に問い合わせてみる</div>` +
+        `<div class="input-area">` +
+          `<div class="input-row"><label>名前<span class="required">必須</span></label><input type="text" id="jdName" placeholder="例）山田 太郎" autocomplete="name"></div>` +
+          `<div class="input-row"><label>生年月日<span class="required">必須</span></label><input type="text" id="jdBirth" placeholder="例）1998/04/01" inputmode="numeric" autocomplete="bday"></div>` +
+          `<div class="input-row"><label>メールアドレス<span class="required">必須</span></label><input type="email" id="jdEmail" placeholder="例）example@email.com" inputmode="email" autocomplete="email"></div>` +
+          `<div class="input-row"><label>電話番号<span class="required">必須</span></label><input type="tel" id="jdTel" placeholder="例）090-1234-5678" inputmode="tel" autocomplete="tel"></div>` +
+          `<div class="input-row"><label>転職希望時期<span class="optional">任意</span></label><select id="jdTiming"><option value="">選んでください</option><option value="今すぐ転職したい">今すぐ転職したい</option><option value="3ヶ月以内に転職したい">3ヶ月以内に転職したい</option><option value="半年以内">半年以内</option><option value="良い求人があれば検討">良い求人があれば検討</option><option value="まだわからない">まだわからない</option></select></div>` +
+          `<div class="input-row"><label>転職希望エリア<span class="optional">任意</span></label><select id="jdArea"><option value="">選んでください</option><option value="北海道・東北">北海道・東北</option><option value="関東">関東</option><option value="東海・中部">東海・中部</option><option value="関西">関西</option><option value="中国・四国">中国・四国</option><option value="九州・沖縄">九州・沖縄</option><option value="海外">海外</option><option value="こだわらない">こだわらない</option></select></div>` +
+        `</div>` +
+        `<div class="jobd-err" id="jdErr"></div>` +
+        `<button type="button" class="jobd-cta-btn" id="jdSubmit">この求人に問い合わせる</button>` +
+      `</div>` +
+      `<div class="jobd-catsearch">` +
+        `<div class="jobd-cat-head"><span class="jobd-cat-badge">カテゴリー</span>から他の求人を探す</div>` +
+        `<select class="jobd-cat-sel" id="jdcCat">` +
+          `<option value="">職種を選択してください</option>` +
+          `<option value="一般営業・新規開拓営業">一般営業・新規開拓営業</option>` +
+          `<option value="インサイドセールス">インサイドセールス</option>` +
+          `<option value="フィールドセールス">フィールドセールス</option>` +
+          `<option value="既存営業・ルート営業">既存営業・ルート営業</option>` +
+          `<option value="カスタマーサクセス">カスタマーサクセス</option>` +
+          `<option value="カスタマーサポート">カスタマーサポート</option>` +
+          `<option value="代理店営業・パートナーセールス">代理店営業・パートナーセールス</option>` +
+          `<option value="営業企画・営業推進">営業企画・営業推進</option>` +
+          `<option value="営業管理職・マネージャー">営業管理職・マネージャー</option>` +
+          `<option value="技術営業・専門営業">技術営業・専門営業</option>` +
+        `</select>` +
+        `<button type="button" class="jobd-cat-btn" id="jdcSearch">🔍 検索する</button>` +
+      `</div>`;
+
+    const submitBtn = document.getElementById('jdSubmit');
+    const errEl = document.getElementById('jdErr');
+    if (submitBtn) submitBtn.addEventListener('click', () => {
+      const nm = (document.getElementById('jdName').value || '').trim();
+      const bd = (document.getElementById('jdBirth').value || '').trim();
+      const em = (document.getElementById('jdEmail').value || '').trim();
+      const tl = (document.getElementById('jdTel').value || '').replace(/[-\s]/g, '');
+      const tm = (document.getElementById('jdTiming').value || '');
+      const ar = (document.getElementById('jdArea').value || '');
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const telRe = /^0\d{9,10}$/;
+      if (!nm || !bd || !emailRe.test(em) || !telRe.test(tl)) {
+        if (errEl) errEl.textContent = '名前・生年月日・メール・電話番号を正しくご入力ください。';
+        return;
+      }
+      if (errEl) errEl.textContent = '';
+      const params = {
+        page_url: location.href,
+        timing: tm, area: ar, income: '', birthdate: bd,
+        job_category: title + '（' + company.trim() + '）',
+        name: nm, email: em, tel: tl
+      };
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中...';
+      const done = () => {
+        const f = document.getElementById('jobdForm');
+        if (f) f.innerHTML = '<div class="jobd-thanks">ご登録ありがとうございます！<br>担当者より、この求人の詳細をご連絡いたします。</div>';
+      };
+      if (window.emailjs && typeof window.emailjs.send === 'function') {
+        window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params).then(done).catch(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'この求人の詳細を受け取る';
+          if (errEl) errEl.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+        });
+      } else { done(); }
+    });
+
+    const catSearch = document.getElementById('jdcSearch');
+    if (catSearch) catSearch.addEventListener('click', () => {
+      const catEl = document.getElementById('jdcCat');
+      const filterKey = (catEl && catEl.value) || '一般営業・新規開拓営業';
+      closeModal();
+      // 既存のこだわり条件フィルター（=該当求人がすべてモザイク）を発火させる
+      const chipWrap = document.getElementById('pickFilterChips');
+      const toggle   = document.getElementById('pickFilterToggle');
+      if (chipWrap && chipWrap.hasAttribute('hidden')) {
+        chipWrap.removeAttribute('hidden');
+        if (toggle) toggle.setAttribute('aria-expanded', 'true');
+      }
+      const chip = document.querySelector('.pick-chip[data-filter="' + filterKey + '"]');
+      if (chip) {
+        setTimeout(() => chip.click(), 350);
+      } else {
+        const js = document.getElementById('jobSection');
+        if (js) js.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    const sc = document.getElementById('jobModalBody');
+    if (sc) sc.scrollTop = 0;
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  closeBtn && closeBtn.addEventListener('click', closeModal);
+  overlay && overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+
+  // 各カードの「求人の詳細」ボタンでモーダルを開く
+  document.querySelectorAll('.job3-card .job3-btn--dark').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const card = btn.closest('.job3-card');
+      if (card) openModal(card);
+    });
   });
 })();
 </script>
