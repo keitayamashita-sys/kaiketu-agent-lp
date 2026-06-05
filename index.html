@@ -1685,8 +1685,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     /* 絞り込み実行時：該当求人をモザイク化 */
-    /* 絞り込み時：カード内容はモザイク化、「求人の詳細」ボタンのみ操作可能 */
-    .pick-list.is-filtered .job3-top,
+    /* 絞り込み時：題名（タイトル）だけ表示し、画像・会社名・スペック・タグはモザイク化
+       （「求人の詳細」ボタンのみ操作可能） */
+    .pick-list.is-filtered .job3-gallery,
+    .pick-list.is-filtered .job3-spec,
     .pick-list.is-filtered .job3-tags {
       filter: blur(6px);
       pointer-events: none;
