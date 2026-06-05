@@ -3120,240 +3120,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <!--
-    ◆◆ 求人カードの追加方法（80社規模にも対応／コード修正不要） ◆◆
-    1. 下の <article class="job3-card" ...> ブロックを1つコピーして追記するだけ。
-       - data-tags は何でも可（空でなければOK。絞り込み対象になります）
-       - 画像=job3-main / タイトル=job3-title / 会社名=job3-company / 年収=job3-salary-num
-         はモーダルにそのまま反映されます。
-    2. 会社概要などの詳細をモーダルに出したい場合のみ、最下部の <script> 内
-       「const JOBS = {…}」に「'会社名': { overview, content, persona, mikeiken, career }」を追記。
-       未記載でも「※詳細は面談でご案内します。」と表示され問題なく動作します。
-    ※ 絞り込みの並び順・件数・モザイクは自動対応するため、追加時のJS編集は不要です。
+    ◆◆ 求人カードの追加・編集方法（データ駆動・80社以上もOK） ◆◆
+    求人カードは下の #pickList に直接書かず、最下部 <script> 内の
+    「window.JOB_DATA = [ … ]」配列をJSが自動でカード化して表示します。
+    ・追加： JOB_DATA に { company, overview, salary, content, persona, mikeiken,
+            tags:[...], img:"images/xxx.png" } を1件足すだけ。
+    ・編集： 該当要素の値を書き換えるだけ。
+    ・絞り込みの並び順・件数・モザイク・モーダル詳細は全て自動対応（JS編集不要）。
   -->
   <div class="pick-list" id="pickList">
-    <!-- Card 1 -->
-    <article class="job3-card" data-tags="mikeiken high fukuri">
-      <div class="job3-top">
-        <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 10_59_51.png" alt="株式会社コレックホールディングス">
-        </div>
-        <div class="job3-info">
-          <h3 class="job3-title">住宅設備営業｜未経験でも安心の2週間研修・福利厚生充実</h3>
-          <dl class="job3-spec">
-            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">株式会社コレックホールディングス</dd></div>
-            <div class="job3-row"><dt>業種・職種</dt><dd>住宅設備営業／一般営業職・フィールドセールス</dd></div>
-            <div class="job3-row"><dt>勤務地</dt><dd>東京都・関東一円（マイカー通勤可）</dd></div>
-            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">300万〜1,000万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
-          </dl>
-        </div>
-      </div>
-      <div class="job3-tags">
-        <span class="job3-tag">未経験歓迎</span>
-        <span class="job3-tag">1年で副部長昇格実績</span>
-        <span class="job3-tag">福利厚生充実</span>
-      </div>
-      <div class="job3-foot">
-        <div class="job3-btns">
-          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Card 2 -->
-    <article class="job3-card" data-tags="mikeiken high">
-      <div class="job3-top">
-        <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_57.png" alt="新日本住設株式会社">
-        </div>
-        <div class="job3-info">
-          <h3 class="job3-title">ハウスメーカー営業｜未経験でも理論年収400万円超え・20代で1,000万円</h3>
-          <dl class="job3-spec">
-            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">新日本住設株式会社</dd></div>
-            <div class="job3-row"><dt>業種・職種</dt><dd>ハウスメーカー／一般営業職・フィールドセールス</dd></div>
-            <div class="job3-row"><dt>勤務地</dt><dd>東京都・大阪府・愛知県ほか</dd></div>
-            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">420万〜1,500万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
-          </dl>
-        </div>
-      </div>
-      <div class="job3-tags">
-        <span class="job3-tag">未経験歓迎</span>
-        <span class="job3-tag">20代で年収1,000万円</span>
-        <span class="job3-tag">賞与年3回</span>
-      </div>
-      <div class="job3-foot">
-        <div class="job3-btns">
-          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Card 3 -->
-    <article class="job3-card" data-tags="mikeiken high fukuri">
-      <div class="job3-top">
-        <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 11_02_09 (2).png" alt="株式会社翔陽">
-        </div>
-        <div class="job3-info">
-          <h3 class="job3-title">高価買取専門の営業｜完全学歴不問・入社1ヶ月でインセン50万円の実績</h3>
-          <dl class="job3-spec">
-            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">株式会社翔陽</dd></div>
-            <div class="job3-row"><dt>業種・職種</dt><dd>高価買取販売／一般営業職・フィールドセールス</dd></div>
-            <div class="job3-row"><dt>勤務地</dt><dd>東京都・大阪府ほか（社宅・家賃制度あり）</dd></div>
-            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">300万〜1,500万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
-          </dl>
-        </div>
-      </div>
-      <div class="job3-tags">
-        <span class="job3-tag">完全学歴不問</span>
-        <span class="job3-tag">高インセンティブ率</span>
-        <span class="job3-tag">社宅・家賃制度あり</span>
-      </div>
-      <div class="job3-foot">
-        <div class="job3-btns">
-          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Card 4 -->
-    <article class="job3-card" data-tags="weekend holiday fukuri">
-      <div class="job3-top">
-        <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_46_39.png" alt="株式会社レオパレス21">
-        </div>
-        <div class="job3-info">
-          <h3 class="job3-title">賃貸カウンター営業｜賞与平均118万円・3年定着率90%の安定環境</h3>
-          <dl class="job3-spec">
-            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">株式会社レオパレス21</dd></div>
-            <div class="job3-row"><dt>業種・職種</dt><dd>賃貸カウンター営業／一般営業職・カウンターセールス</dd></div>
-            <div class="job3-row"><dt>勤務地</dt><dd>東京都（年間休日123日）</dd></div>
-            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">330万〜700万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
-          </dl>
-        </div>
-      </div>
-      <div class="job3-tags">
-        <span class="job3-tag">土日祝休み</span>
-        <span class="job3-tag">年間休日123日</span>
-        <span class="job3-tag">定着率90%</span>
-      </div>
-      <div class="job3-foot">
-        <div class="job3-btns">
-          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Card 5 -->
-    <article class="job3-card" data-tags="mikeiken weekend holiday high">
-      <div class="job3-top">
-        <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 11_02_10 (4).png" alt="大東建託株式会社">
-        </div>
-        <div class="job3-info">
-          <h3 class="job3-title">不動産営業｜未経験・第二新卒歓迎・初年度から年収1,000万円も狙える</h3>
-          <dl class="job3-spec">
-            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">大東建託株式会社</dd></div>
-            <div class="job3-row"><dt>業種・職種</dt><dd>不動産営業／一般営業職・フィールドセールス</dd></div>
-            <div class="job3-row"><dt>勤務地</dt><dd>東京都（土日祝休み）</dd></div>
-            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">360万〜1,000万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
-          </dl>
-        </div>
-      </div>
-      <div class="job3-tags">
-        <span class="job3-tag">未経験・第二新卒歓迎</span>
-        <span class="job3-tag">土日祝休み</span>
-        <span class="job3-tag">初年度1,000万円も</span>
-      </div>
-      <div class="job3-foot">
-        <div class="job3-btns">
-          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Card 6 -->
-    <article class="job3-card" data-tags="high fukuri">
-      <div class="job3-top">
-        <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年5月25日 19_45_52.png" alt="ケイアイスター不動産株式会社">
-        </div>
-        <div class="job3-info">
-          <h3 class="job3-title">不動産営業｜ホワイト企業認定プラチナ・入社2年で年収1,200万円実績</h3>
-          <dl class="job3-spec">
-            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">ケイアイスター不動産株式会社</dd></div>
-            <div class="job3-row"><dt>業種・職種</dt><dd>不動産営業／一般営業職・フィールドセールス</dd></div>
-            <div class="job3-row"><dt>勤務地</dt><dd>全国各拠点（住宅購入手当・家族手当など手当豊富）</dd></div>
-            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">300万〜700万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
-          </dl>
-        </div>
-      </div>
-      <div class="job3-tags">
-        <span class="job3-tag">ホワイト企業認定プラチナ</span>
-        <span class="job3-tag">入社2年で1,200万円実績</span>
-        <span class="job3-tag">手当が豊富</span>
-      </div>
-      <div class="job3-foot">
-        <div class="job3-btns">
-          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Card 7 -->
-    <article class="job3-card" data-tags="mikeiken high">
-      <div class="job3-top">
-        <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 11_02_09 (1).png" alt="大和財託株式会社">
-        </div>
-        <div class="job3-info">
-          <h3 class="job3-title">不動産営業｜完全反響営業・飛び込み&テレアポ一切なしで1,000万円も</h3>
-          <dl class="job3-spec">
-            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">大和財託株式会社</dd></div>
-            <div class="job3-row"><dt>業種・職種</dt><dd>不動産営業／一般営業職・フィールドセールス</dd></div>
-            <div class="job3-row"><dt>勤務地</dt><dd>東京都・大阪府ほか（完全反響営業）</dd></div>
-            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">536万〜1,500万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
-          </dl>
-        </div>
-      </div>
-      <div class="job3-tags">
-        <span class="job3-tag">未経験から1,000万円</span>
-        <span class="job3-tag">完全反響営業</span>
-        <span class="job3-tag">ホワイト企業認定プラチナ</span>
-      </div>
-      <div class="job3-foot">
-        <div class="job3-btns">
-          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Card 8 -->
-    <article class="job3-card" data-tags="mikeiken high fukuri">
-      <div class="job3-top">
-        <div class="job3-gallery">
-          <img class="job3-main" src="images/ChatGPT Image 2026年6月5日 11_02_10 (3).png" alt="株式会社貴瞬">
-        </div>
-        <div class="job3-info">
-          <h3 class="job3-title">高価買取販売の営業｜未経験大歓迎・入社3ヶ月で主任昇格実績あり</h3>
-          <dl class="job3-spec">
-            <div class="job3-row"><dt>会社名</dt><dd class="job3-company">株式会社貴瞬</dd></div>
-            <div class="job3-row"><dt>業種・職種</dt><dd>高価買取販売／一般営業職・フィールドセールス</dd></div>
-            <div class="job3-row"><dt>勤務地</dt><dd>東京都（上場を目指す急成長企業）</dd></div>
-            <div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">350万〜2,000万円</span><span class="job3-salary-lock">🔒登録で公開</span></dd></div>
-          </dl>
-        </div>
-      </div>
-      <div class="job3-tags">
-        <span class="job3-tag">未経験大歓迎</span>
-        <span class="job3-tag">年収1,000万円OVER実績</span>
-        <span class="job3-tag">福利厚生充実</span>
-      </div>
-      <div class="job3-foot">
-        <div class="job3-btns">
-          <a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a>
-        </div>
-      </div>
-    </article>
+    <!-- ↑ 求人カードは window.JOB_DATA から自動生成されます -->
   </div>
 
 </section>
@@ -4013,6 +3789,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 
 <script>
+window.JOB_DATA = [{"company": "新日本住設株式会社", "overview": "住宅設備機器の販売、施工、保守 新築・増改築の設計、施工、保守 新車・中古自動車の販売、保守 太陽光発電事業 蓄電池事業 オール電化事業 住宅設備事業 EV（電気自動車）事業", "salary": "420万円～1000万円", "content": "太陽光・蓄電池の訪問販売", "persona": "18歳～39歳・運転免許・学歴・職歴・正社員経験不問", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年6月5日 10_59_51.png"}, {"company": "株式会社コレックホールディングス", "overview": "メディアプラットフォーム事業・お部屋探しのチャット不動産サービス「イエプラ」・不動産の仲介、売買、斡旋事業「家AGENT」 アウトソーシング事業 エネルギー事業・太陽光発電、その他関連商材の企画及び販売", "salary": "300万円～1,500万円", "content": "新電力・ガス・ウォーターサーバーなどのライフライン営業", "persona": "20～29歳・未経験歓迎・学歴・職歴・正社員経験不問", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年5月25日 19_45_19.png"}, {"company": "株式会社Lime", "overview": "・エステサロン（LIME/Belle）60店舗 ・眉毛まつ毛パーマ専門店(most eyes/SSIN STUDIO）90店舗 ・フランチャイズコンサル ・M&A仲介", "salary": "380万円～1,440万円", "content": "オープンポジション", "persona": "20～27歳・未経験歓迎・高卒", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (1).png"}, {"company": "FLARETECH株式会社", "overview": "システムインテグレーション事業 有料職業紹介事業（13-ユ-317341） エンジニアの市場価値を高めるための取り組み", "salary": "400万円～600万円", "content": "SES営業", "persona": "20～35歳・営業/販売/接客経験・学歴不問", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_25.png"}, {"company": "FANTAS technology株式会社", "overview": "ウェルス・マネジメント・プラットフォーム事業（総合的な資産運用や住宅に関するコンサルティング） ウェルス・エデュケーション・プラットフォーム事業（金融リテラシー向上の為の各種金融教育サービス）", "salary": "350万円～500万円", "content": "賃貸管理スタッフ", "persona": "22～35歳・大卒以上・賃貸管理の経験もしくは知見をお持ちの方", "mikeiken": "不可", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (2).png"}, {"company": "株式会社PIGNUS", "overview": "・Webマーケティングコンサルティング事業 独自の分析力と運用力で、クライアントの事業課題解決と成長をサポートします。 ・自社プロダクト開発事業", "salary": "480万円～1,200万円", "content": "Webコンサルタント", "persona": "22～30歳・大卒以上・ロジカルな方", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年5月25日 19_45_29.png"}, {"company": "大和財託株式会社", "overview": "不動産・建築領域等を活用した資産価値共創事業 ■資産形成に関するプランニング及びコンサルティング ■不動産の管理・賃貸及び売買 ■建築物の設計及び工事監理 ■建物のリフォーム・リノベーション", "salary": "350万円～856万円", "content": "資産運用コンサルタント", "persona": "23～40歳・男性のみ・高卒以上・何らかの営業経験", "mikeiken": "不可", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (3).png"}, {"company": "株式会社SecondGame", "overview": "人材紹介事業、AgentONE事業、EngageOne事業、履歴書One事業", "salary": "360万円～540万円", "content": "キャリアアドバイザー", "persona": "18～39歳・高卒以上", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_34.png"}, {"company": "ヴァンテージマネジメント株式会社", "overview": "Web＆AIパートナー事業 人材ソリューション事業 セールスDX事業", "salary": "360万円～720万円", "content": "SaaS営業・新規事業開発", "persona": "23～32歳・大卒以上・成長意欲のある人・営業経験2年以上", "mikeiken": "不可", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (4).png"}, {"company": "フューチャー・アンティークス株式会社", "overview": "クライアントワーク事業 プロダクト事業", "salary": "350万円～800万円", "content": "SES営業", "persona": "20～35歳・学歴不問・営業もしくは数字を追った経験", "mikeiken": "不可", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年5月25日 19_45_39.png"}, {"company": "株式会社NAILIT", "overview": "セールスプロモーション事業 セールスコンサルティング事業", "salary": "360万円～1,500万円", "content": "ウォーターサーバーの販売", "persona": "18～29歳・学歴不問・アルバイトのみOK・正社員デビュー歓迎", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年6月5日 10_59_51.png"}, {"company": "株式会社セレス", "overview": "モバイルサービス事業 フィナンシャルサービス事業", "salary": "420万円～650万円", "content": "インフルエンサーマーケティング", "persona": "25～35歳・高卒以上・営業もしくは販売経験", "mikeiken": "不可", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年5月25日 19_45_43.png"}, {"company": "株式会社レオパレス21", "overview": "アパート・マンション・住宅等の建築・賃貸管理及び販売 リゾート施設の開発・運営 ブロードバンド通信事業 介護事業、他", "salary": "330万円～731万円", "content": "賃貸カウンター", "persona": "22～40歳・高卒以上・自動車免許・営業もしくは接客経験", "mikeiken": "不可", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (1).png"}, {"company": "ＢＣＣ株式会社", "overview": "IT営業アウトソーシング事業、ヘルスケアビジネス事業", "salary": "260万円～500万円", "content": "ITソリューション営業", "persona": "18～34歳・高卒以上・アルバイトのみ可", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_52.png"}, {"company": "ジャパンエレベーターサービスホールディングス株式会社", "overview": "エレベーター等の保守・保全業務", "salary": "326万円～663万円", "content": "エレベーター・エスカレーターの点検・修理作業", "persona": "20～39歳・高卒以上・男性のみ・自動車免許", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (2).png"}, {"company": "株式会社メイクス", "overview": "不動産の販売", "salary": "450万円～1,000万円", "content": "紹介営業", "persona": "18～35歳・学歴不問・未経験歓迎", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年5月25日 19_45_57.png"}, {"company": "ジェイレックス・コーポレーション株式会社", "overview": "1)マンションの企画開発 2)収益不動産の管理運営", "salary": "495万円～550万円", "content": "用地仕入れ", "persona": "20～32歳・男性のみ・大卒以上・収入アップしたい方", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (3).png"}, {"company": "株式会社エス・エム・エスサポートサービス", "overview": "エス･エム･エスグループが展開するサービスに関するコールセンター業務及び周辺のサポート業務", "salary": "384万円～458万円", "content": "インサイドセールス", "persona": "22～35歳・学歴不問・数字を追った経験がある人", "mikeiken": "不可", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年5月25日 19_46_39.png"}, {"company": "株式会社エルズホーム", "overview": "資産運用コンサルタント業務 投資用不動産売買及び仲介業務 賃貸物件の仲介及び管理業務 リノベーション業務", "salary": "360万円～1,500万円", "content": "不動産の仕入れ営業", "persona": "20～29歳・学歴不問・未経験OK・自動車免許", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (4).png"}, {"company": "株式会社トップライン", "overview": "ネットワーク関連事業 インターネット接続仲介業 携帯電話販売事業 テレマーケティング事業 人材派遣業 生命保険代理業 損害保険代理業", "salary": "300万円～500万円", "content": "通信系の既存反響営業", "persona": "20～35歳・男性優遇・高卒以上・社会人経験1年以上・自動車免許", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_19.png"}, {"company": "株式会社AddFlow", "overview": "■SNS広告運用コンサルティング事業 ■WEBマーケティング事業 ■コンテンツ制作事業（動画・HP・LP etc） ■採用支援・代行事業", "salary": "300万円～500万円", "content": "SNS営業", "persona": "19～30歳・高卒以上・未経験歓迎・キャリアアップを目指したい方", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 10_59_51.png"}, {"company": "リベラルソリューション株式会社", "overview": "・住宅用太陽光発電 販売、施工、メンテナンス ・住宅用蓄電池 ・住宅向け屋根外壁塗装 ・自家消費太陽光発電 ・系統用蓄電池 ・空調設備 ・LED照明", "salary": "360万円～900万円", "content": "太陽光などのエコ商材の営業", "persona": "22～35歳・高卒以上・未経験歓迎・自動車免許", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_25.png"}, {"company": "株式会社ミギナナメウエ", "overview": "採用コンサルティング事業・人材紹介事業・テックタレント事業", "salary": "500万円～800万円", "content": "採用支援コンサルタント", "persona": "20～35歳・高卒以上・法人営業経験3年以上", "mikeiken": "不可", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (1).png"}, {"company": "株式会社HATARABA", "overview": "オフィスコンサルティング事業 プロジェクトマネジメント事業 不動産に関するソリューション事業 人材紹介事業 M&A仲介事業", "salary": "354万円～600万円", "content": "オフィスコンサル営業", "persona": "23～32歳・学歴不問・営業経験者・ロジカルな人", "mikeiken": "不可", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年5月25日 19_45_29.png"}, {"company": "株式会社オープンハウスグループ", "overview": "グループ会社等の経営管理", "salary": "528万円～800万円", "content": "戸建仲介営業", "persona": "22～34歳・高卒以上・自動車免許・中国語や日本語がネイティブな人", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (2).png"}, {"company": "ユニ石油株式会社", "overview": "アスファルトを主体とした各種石油製品・石油化学製品の販売 ならびに環境に関する資機材の販売。", "salary": "300万円～800万円", "content": "アスファルト製品のルート営業", "persona": "22～45歳・高卒以上・自動車免許・営業デビュー歓迎", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_34.png"}, {"company": "株式会社WEEVA", "overview": "営業コンサルティング 融資サポート 経営コンサルティング メディア事業", "salary": "450万円～600万円", "content": "法人営業", "persona": "23～29歳・大卒以上・法人営業もしくは接客経験のある方", "mikeiken": "不可", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (3).png"}, {"company": "株式会社クロード", "overview": "労働者派遣事業 紹介予定派遣事業 有料職業紹介事業 アウトソーシング事業", "salary": "250万円～500万円", "content": "コールセンター", "persona": "18～35歳・高卒以上・未経験歓迎・職歴不問", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_39.png"}, {"company": "株式会社ボードルア", "overview": "ITインフラストラクチャ事業 クラウド導入支援、5G/IoT対応ネットワークインテグレーション及びセキュリティ構築運用等", "salary": "400万円～600万円", "content": "SES営業", "persona": "20～27歳・大卒以上・営業経験のある方", "mikeiken": "不可", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (4).png"}, {"company": "株式会社ホーク・ワン", "overview": "新築戸建分譲住宅施工、販売", "salary": "350万円～650万円", "content": "注文住宅の提案営業", "persona": "20～34歳・学歴不問・自動車免許", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_43.png"}, {"company": "株式会社翔陽", "overview": "リフォーム業 / 古物売買業 / リサイクル業 / 遺品整理業 / 相続・終活コンサルティング業", "salary": "400万～800万円", "content": "不動産仲介、売買営業、管理業務", "persona": "18～35歳・学歴不問・未経験歓迎", "mikeiken": "可（ポテンシャル重視）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 10_59_51.png"}, {"company": "ケイアイスター不動産株式会社", "overview": "分譲住宅事業、注文住宅事業、総合不動産流通事業、アセット事業、管理事業、宅地造成", "salary": "400万～1,000万円", "content": "戸建住宅の企画・販売、分譲住宅営業", "persona": "20～35歳・学歴不問・未経験歓迎", "mikeiken": "可（研修制度が充実）", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年5月25日 19_45_52.png"}, {"company": "アドメイク株式会社", "overview": "インターネット広告事業 /HP制作・プロモーションムービー制作・WEBソリューション / 人材事業", "salary": "350万～600万円", "content": "広告運用、Webマーケティング、Web制作", "persona": "20～27歳・学歴不問・未経験歓迎", "mikeiken": "一部可（ポテンシャル採用あり）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (1).png"}, {"company": "ナハト株式会社", "overview": "広告代理事業（インフルエンサー広告、AD広告、リスティング広告、SEO事業 etc） 広告コンサルタント事業 プロダクション事業 Webメディア制作事業 D2C事業", "salary": "400万～800万円", "content": "インフルエンサーマーケティング、SNS広告運用", "persona": "SNS（TikTok、Instagram等）が好きで、流行を捉えるのが得意な人", "mikeiken": "可（若手未経験の採用実績多数）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_57.png"}, {"company": "Forcepromote株式会社", "overview": "ITソリューション事業、OA事業、アライアンス事業", "salary": "350万～650万円", "content": "デジタルマーケティング支援、営業支援", "persona": "18～29歳・学歴不問・未経験歓迎", "mikeiken": "可（意欲・カルチャーマッチ重視）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (2).png"}, {"company": "株式会社アンビションDXホールディングス", "overview": "■賃貸不動産事業 ■売買不動産事業 ■プロパティマネジメント事業 ■リーシングマネジメント事業 ■Web営業事業 ■法人営業事業 ■賃貸管理受託事業", "salary": "350万～700万円", "content": "プロパティマネジメント（賃貸管理）、不動産テック営業", "persona": "22～35歳・学歴不問・未経験歓迎", "mikeiken": "可（第二新卒歓迎）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_46_39.png"}, {"company": "住友不動産ステップ株式会社", "overview": "1.不動産の売買、賃貸の仲介業務 2.不動産の受託販売業務 3.不動産の賃貸業務", "salary": "400万～1,200万円", "content": "不動産売買の仲介営業（住友の仲介ステップ）", "persona": "22～40歳・高卒以上・未経験歓迎", "mikeiken": "可（宅建取得サポートあり）", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (3).png"}, {"company": "住友不動産ハウジング株式会社", "overview": "完成工事事業、注文住宅事業、リフォーム事業", "salary": "400万～1,000万円", "content": "注文住宅の提案営業、施工管理", "persona": "22～40歳・高卒以上・未経験歓迎", "mikeiken": "可（営業未経験者も多数在籍）", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年5月25日 19_45_19.png"}, {"company": "株式会社Growth DX", "overview": "BtoB Growth支援事業 ビジネスマッチングサービス「Meet Hub」", "salary": "400万～700万円", "content": "企業のDX推進コンサルティング、システム導入支援", "persona": "20～35歳・大卒以上・未経験歓迎", "mikeiken": "不問〜一部可（IT知識あれば尚可）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (4).png"}, {"company": "大東建託株式会社", "overview": "建設事業、不動産開発事業、不動産賃貸事業、その他事業", "salary": "400万～1,500万円", "content": "土地活用提案営業（賃貸マンション・アパート）", "persona": "21～57歳・高卒以上・未経験歓迎", "mikeiken": "可（未経験から年収1000万狙える代表格）", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年5月25日 19_45_25.png"}, {"company": "株式会社ジールコミュニケーションズ", "overview": "デジタルリスク事業：企業のWeb・SNS上の風評被害対策、炎上防止のためのモニタリング。 HR（人材）事業：新卒学生をメインとした採用コンサルティング", "salary": "350万～700万円", "content": "Webリスクマネジメント（炎上対策）、デジタルマーケティング営業", "persona": "22～29歳・大卒以上・未経験歓迎", "mikeiken": "可（研修あり、第二新卒歓迎）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 10_59_51.png"}, {"company": "スマートキャンプ株式会社", "overview": "マーケティング支援事業：国内最大級のSaaS比較サイト「BOXIL SaaS」の企画・運営。 インサイドセールス支援事業：「BALES」の提供。", "salary": "450万～800万円", "content": "SaaS比較サイト「BOXIL」の運営、インサイドセールス支援", "persona": "24～38歳・高卒以上・未経験歓迎", "mikeiken": "一部可（ポテンシャル・第二新卒枠あり）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_29.png"}, {"company": "株式会社S-FIT", "overview": "不動産賃貸仲介事業：「お部屋探しCAFEヘヤギメ！」の運営。 総合不動産サービス：法人向けの社宅斡旋、プロパティマネジメント、不動産開発や売買仲介", "salary": "350万～800万円", "content": "お部屋探し（「お部屋探しCAFEヘヤギメ！」など）の賃貸仲介営業", "persona": "24～30歳・高卒以上・未経験歓迎", "mikeiken": "可（人柄重視の採用）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (1).png"}, {"company": "株式会社南山堂ホールディングス", "overview": "調剤薬局事業：総合調剤薬局チェーン「南山堂薬局」などの経営。 医療支援・コンサルティング：医師の新規開業支援、医療モールの企画・開発", "salary": "350万～700万円", "content": "調剤薬局の運営、医療コンサルティング、事務", "persona": "医療業界に貢献したく、正確で誠実な業務進行ができる人", "mikeiken": "可（医療事務や一般職は未経験可）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_34.png"}, {"company": "大同生命保険株式会社", "overview": "生命保険事業：T&D保険グループの中核を担う生命保険会社。中小企業市場に特化し、経営者向けの定期保険や各種団体保険の販売、健康経営の支援。", "salary": "400万～900万円", "content": "中小企業向けの団体保険・福利厚生プランの提案（企業福利厚生プランナー）", "persona": "土日祝休みで長く働きたく、中小企業の経営者をサポートしたい人", "mikeiken": "可（主婦層・営業未経験者も多数活躍）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (2).png"}, {"company": "メディフォン株式会社", "overview": "医療通訳事業：遠隔医療通訳サービス「mediPhone」の提供（多言語対応）。 健康管理SaaS事業：クラウドサービス「mediment」の運営。", "salary": "400万～700万円", "content": "医療通訳サービス・遠隔医療支援の営業、コーディネーター", "persona": "25～35歳・短大卒以上・未経験歓迎", "mikeiken": "一部可（医療・語学に興味ある方）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_39.png"}, {"company": "株式会社GOOYA", "overview": "IT人材・派遣事業：ITエンジニアやオフィスワークの人材派遣。 制作・開発事業：Webアプリケーションや業務系システムの受託開発、Webサイト制作。", "salary": "350万～650万円", "content": "Web制作、エンジニア派遣・SES、サイト運用", "persona": "25～29歳・高卒以上・未経験歓迎", "mikeiken": "可（未経験からエンジニアを目指せる）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (3).png"}, {"company": "株式会社プレアデス", "overview": "エッセンシャルワーカー特化型人材事業：自動車整備士、トラックドライバー、保育士、栄養士など専門職領域に特化した人材紹介および派遣サービス。", "salary": "350万～600万円", "content": "飲料（「CHILL OUT」等）やライフスタイル商品の企画・販売、ルート営業", "persona": "20～28歳・大卒以上・未経験歓迎", "mikeiken": "可（熱意重視）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_43.png"}, {"company": "ポールトゥウィン株式会社", "overview": "ネット・ゲームサポート事業：ゲームやアプリのデバッグ・バグチェック、カスタマーサポート。 セキュリティ・モニタリング：WebサイトやSNSの投稿監視。", "salary": "300万～550万円", "content": "ゲーム・Webデバッグ（テスト）、ネットパトロール、カスタマーサポート", "persona": "25～35歳・学歴不問・未経験歓迎", "mikeiken": "可（アルバイトからの登用も活発）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (4).png"}, {"company": "株式会社ラストデータ", "overview": "IT人材支援・スクール事業：未経験からのIT業界転職を支援するアプリ「PIT」やITスクール「PIT」の運営。 システム開発・メディア事業。", "salary": "350万～600万円", "content": "データ分析、マーケティング支援、営業", "persona": "21～29歳・高卒以上・未経験歓迎", "mikeiken": "可（意欲重視）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_52.png"}, {"company": "インハウスコミット株式会社", "overview": "HR×実践型コンサルティング事業：営業やインサイドセールス、コールセンター業務に特化したアウトソーシング・受託。新規業務立ち上げや売上拡大の戦略立案から実務運用まで伴走支援。", "salary": "400万～800万円", "content": "インハウス（インサイド）セールス支援、営業コンサルティング", "persona": "18～33歳・学歴不問・未経験歓迎", "mikeiken": "可（営業に挑戦したい人歓迎）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 10_59_51.png"}, {"company": "株式会社タイムワールド", "overview": "酸素カプセル事業：高気圧・高濃度酸素カプセル（「O2capsule」やBOX型「O2BOX」）の設計、国内工場での製造、設置、メンテナンスまでを一貫して行う専門メーカー。", "salary": "350万～600万円", "content": "酸素カプセルの製造・販売・レンタル営業", "persona": "22～35歳・高卒以上・未経験歓迎", "mikeiken": "可（商品力が高いので売りやすい）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_57.png"}, {"company": "株式会社サークラックス", "overview": "ブランド品リユース事業：ラグジュアリーブランドの買取・販売専門店「ギャラリーレア」の運営、オンライン買取「ブランディア」の運営、BtoBオークションの開催。", "salary": "350万～600万円", "content": "各種アウトソーシング、営業支援、サービス運営", "persona": "22～35歳・高卒以上・査定経験者", "mikeiken": "可（人物重視）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (1).png"}, {"company": "株式会社創建", "overview": "地域経営コンサルティング：公共政策、都市政策、地域経済、環境創生に関する調査・計画立案、PPP/PFIの支援などを行う戦略コンサルタント。", "salary": "400万～800万円", "content": "ハウスメーカー営業、設計、施工管理", "persona": "22～35歳・学歴不問・未経験歓迎", "mikeiken": "可（営業職は未経験可）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_46_39.png"}, {"company": "バリュエンスホールディングス株式会社", "overview": "リユース事業（ブランド・骨董）：ブランド買取専門店「なんぼや」の運営、骨董品・美術品の買取。 オークション事業：「STAR BUYERS AUCTION」を通じたBtoB販売。", "salary": "400万～800万円", "content": "ブランド品・骨董品などの買取営業（「なんぼや」など）、バックオフィス", "persona": "22～35歳・高卒以上・未経験歓迎", "mikeiken": "可（鑑定スキルは入社後習得）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (2).png"}, {"company": "株式会社BuySell Technologies", "overview": "出張買取・リユース事業：着物や切手、ブランド品、ジュエリーなどの出張訪問買取サービス「バイセル」の運営。 多角的販売：自社EC・百貨店催事・自社古物オークション。", "salary": "400万～900万円", "content": "出張訪問買取（「バイセル」）、着物・ブランド品の査定営業", "persona": "22～45歳・高卒以上・未経験歓迎", "mikeiken": "可（独自の教育体制・研修あり）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_19.png"}, {"company": "株式会社貴瞬", "overview": "宝飾品（リサイクルジュエリー）事業：ダイヤモンドや色石、貴金属の買い取り。 ジュエリーの再加工・販売：買い取った宝石の再研磨やリメイク、加工を行い、国内外への卸売り・輸出入。", "salary": "350万～700万円", "content": "宝石（ジュエリー）の仕入れ・卸売・リカット販売", "persona": "22～29歳・高卒以上・未経験歓迎", "mikeiken": "可（未経験からバイヤーになれる）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (3).png"}, {"company": "株式会社リンク", "overview": "古物売買業 / リユース・リサイクル業 / 遺品整理業 / 相続・終活コンサルティング業", "salary": "350万～650万円", "content": "ビジネスフォン・オフィスインフラの営業、店舗運営支援", "persona": "18～35歳・学歴不問・未経験歓迎", "mikeiken": "可（人柄・ポテンシャル重視）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_25.png"}, {"company": "KB-eye株式会社", "overview": "AI警備システム事業：映像解析AIを活用し、道路工事現場などの交通誘導・交通制御を自動化・省人化するシステム「KB-eye」の開発・販売・保守。", "salary": "350万～600万円", "content": "AIを活用した警備システムの開発・販売、営業", "persona": "22～35歳・高卒以上・未経験歓迎", "mikeiken": "一部可（営業・サポート職は未経験可）", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (4).png"}, {"company": "株式会社いーふらん", "overview": "買取・フランチャイズ事業：高級宝飾・時計・ブランド品の買取専門店「おたからや」の運営およびFC事業。 多角化事業：不動産事業、ヘルスケア・フィットネス事業、ゴルフ事業など。", "salary": "450万～1,500万円", "content": "高級宝飾・ブランド品買取「おたからや」の直営店営業", "persona": "18～35歳・高卒以上・未経験歓迎", "mikeiken": "可（スピード出世・未経験多数）", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年5月25日 19_45_29.png"}, {"company": "株式会社ClassLab.", "overview": "ライフライン契約代行事業（電気・ガス・水道・インターネット）およびメディア事業を展開。2019年創業、IPO準備中の急成長ベンチャー。", "salary": "300万～600万円", "content": "電気・ガス・水道・インターネットなどライフラインの契約代行（内勤・電話のみ）、新生活サポート", "persona": "18～39歳・学歴不問・未経験歓迎", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 10_59_51.png"}, {"company": "株式会社アエラス", "overview": "首都圏に直営約70店舗を展開する賃貸仲介専門企業。28年連続増収増益。不動産売買・管理・リフォーム・コンサルティング事業も手掛ける", "salary": "350万～750万円", "content": "首都圏直営約70店舗での賃貸物件仲介（完全反響型営業）、物件写真撮影・書類作成等のバックオフィス業務", "persona": "18～45歳・学歴不問・自動車免許不問・宅建不要", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_34.png"}, {"company": "日本セルフメディカル株式会社", "overview": "1982年創業の家庭用電位治療器メーカー。世界初のデジタル高圧電位治療器「メディック」の特許を取得。製造から販売・アフターフォローまで一貫して展開。", "salary": "354万～2,000万円", "content": "デパート・ショッピングモールでの家庭用電位治療器「メディック」の体験イベント運営・実演販売", "persona": "18～45歳・学歴不問・中卒OK", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (1).png"}, {"company": "株式会社PRUM", "overview": "2019年創業のWebアプリケーション開発・SES・エンジニア育成事業を展開するITベンチャー。「日本のエンジニア不足を解消する」をミッションに掲げる。", "salary": "360万～540万円", "content": "ITエンジニアと企業のマッチング支援（SES営業）、エンジニアのキャリア面談・案件提案", "persona": "20～39歳・学歴不問・営業経験1年以上必須", "mikeiken": "不可、何かしらの営業1年以上", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年5月25日 19_45_39.png"}, {"company": "株式会社ビビッドグループ", "overview": "2015年創業。住宅設備保証（エコキュート等）・太陽光・蓄電池・ライフライン見直しサービスを展開。大阪本社、東京・名古屋・福岡に拠点を持つ。", "salary": "288万～1,000万円", "content": "エコキュート保証サービス・高性能浄水器・監視カメラ等の訪問営業（アポインター→クローザーへステップアップ）", "persona": "18～35歳・学歴不問・高卒新卒も歓迎", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (2).png"}, {"company": "株式会社RERISE", "overview": "2018年創業の不動産営業会社。新築・戸建ての売買仲介・土地売買・企業コンサルを展開。「日本一の不動産営業会社」を目指すベンチャー。", "salary": "500万～4,000万円", "content": "新築・戸建ての不動産売買営業（個人向けライフプラン提案）、顧客・パートナー開拓", "persona": "19～29歳・学歴不問・自動車免許必須・男性のみ", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年5月25日 19_45_43.png"}, {"company": "エコロシティ株式会社", "overview": "1996年創業のコインパーキング「エコロパーク」の運営・管理会社。全国5,000箇所以上で駐車場を運営。業界シェア3位・8期連続前年比110%の成長企業。", "salary": "388万～480万円（インセンティブ別途）", "content": "不動産会社への土地活用（コインパーキング化）提案営業、既存オーナーとの関係構築", "persona": "21～35歳・高卒以上・自動車免許必須・営業経験半年以上", "mikeiken": "不可、営業経験", "tags": ["経験者向け"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (3).png"}, {"company": "アーク引越センター株式会社", "overview": "1980年創業の引越サービス会社。関東・東海・関西を中心に全国展開。従業員500〜1,000名規模の安定企業。", "salary": "330万～400万円（インセンティブ別途）", "content": "引越しを検討するお客様への訪問見積もり・サービス提案（100％反響型営業）", "persona": "19～40歳・学歴不問・自動車免許必須（AT可）", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_52.png"}, {"company": "株式会社グッドワークコミュニケーションズ", "overview": "2010年創業の営業アウトソーシング・人材派遣・テレマーケティング会社。販売職・コールセンター職で全国展開。平均年齢26.6歳の若い組織。", "salary": "264万～1,000万円", "content": "大手携帯キャリアショップ・家電量販店等での販売接客、またはコールセンターでのインバウンド・アウトバウンド対応", "persona": "19～34歳・学歴不問・就業経験1年以上", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (4).png"}, {"company": "株式会社M.m", "overview": "2020年創業の不動産コンサルティング会社。買取再販・リフォーム・仲介・FP事業を展開。東京・名古屋に拠点を持つベンチャー。", "salary": "360万～480万円（インセンティブ別途）", "content": "個人向け不動産（ファミリー用物件）の新規アポイント獲得・コンサルティング営業（飛び込み営業）", "persona": "20～35歳・学歴不問・自動車免許必須", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_57.png"}, {"company": "株式会社日本ユナイテッドエネルギー", "overview": "2012年創業。太陽光パネル・蓄電池・オール電化・住宅設備リフォーム事業を展開する大阪本社のエネルギー系ベンチャー。", "salary": "312万～2,000万円（インセンティブ別途）", "content": "太陽光パネル・蓄電池・オール電化等の個人宅への訪問提案営業（拠点組・出張組の選択可）", "persona": "18～35歳・学歴不問・自動車免許必須", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年6月5日 10_59_51.png"}, {"company": "株式会社フュージョン", "overview": "2019年創業。携帯ショップ向け人材派遣・コンサルティング事業を展開。独自の「SAITO式」組織運営術を活用し、NTTdocomoショップの販売支援を行う。", "salary": "320万～450万円（インセンティブ別途）", "content": "NTTdocomoショップでの携帯販売・接客、将来的には複数店舗の外部コンサル担当へのキャリアアップも可", "persona": "20～35歳・高卒以上・自動車免許必須・全国転勤可能な方", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_46_39.png"}, {"company": "株式会社PEEES", "overview": "2013年創業。OA機器・Web制作・YouTube漫画・社用携帯・電気代コスト削減・QRオーダーシステム等、多様なIT・インフラ商材を法人向けに提案するコンサルティング会社。", "salary": "288万～360万円（インセンティブ別途）", "content": "不動産・飲食・美容等の経営者・オーナーへのBtoB提案営業（テレアポ〜商談・契約まで一貫担当）", "persona": "22～29歳・学歴不問・年齢不問", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (1).png"}, {"company": "生和コーポレーション株式会社", "overview": "1971年創業。賃貸マンション建設・土地活用事業を展開する大手不動産・建設会社。累計着工戸数100,000戸超・入居率98%台。無借金経営を続ける安定企業。", "salary": "300万～1,300万円（インセンティブ別途）", "content": "土地オーナーへの賃貸マンション経営による資産活用提案営業（建築士・税理士・金融プロのチームサポートあり）", "persona": "26～38歳・高卒以上・正社員勤務経験3年以上", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年5月25日 19_45_19.png"}, {"company": "株式会社一条工務店", "overview": "1978年創業。注文住宅の販売棟数5年連続業界No.1・ギネス世界記録認定のハウスメーカー。全国約460拠点・従業員5,000名以上の大手企業。", "salary": "300万～1,000万円（賞与年2回別途）", "content": "展示場への来場客への注文住宅の接客・プラン提案・資金計画・契約・建築中フォロー・アフターサポート（完全反響型営業）", "persona": "18～40歳・高卒以上・自動車免許必須", "mikeiken": "可", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年6月5日 11_02_09 (2).png"}, {"company": "株式会社ARMK", "overview": "1956年創業。茨城県北部でNTTdocomoショップを運営する販売代理店。「お客様第一」と「社員第一」を同時に掲げる地域密着型企業。", "salary": "300万～630万円（賞与年2回別途）", "content": "ドコモショップでの携帯電話・スマートフォンの販売・各種手続き・操作説明等の接客対応全般", "persona": "20～35歳・高卒以上・自動車免許必須", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_25.png"}, {"company": "株式会社ドリームキャリア", "overview": "2002年創業。IT人材派遣・人材紹介・SES・組織人事コンサルティングを展開。大手企業プライム案件を中心に扱うIT系企業。", "salary": "800万～1,000万円", "content": "大手企業向けWebシステム開発プロジェクトのマネジメント、エンジニア育成・研修サポート、事業推進", "persona": "23～35歳・高卒以上・PMとしてのプロジェクト管理経験必須", "mikeiken": "業種未経験可・職種経験必須", "tags": ["未経験歓迎", "高年収（1,000万円〜）"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (3).png"}, {"company": "日研トータルソーシング株式会社", "overview": "1981年創業の大手エンジニアリング・人材派遣会社。全国の工場・プラント向けに設備保全・メンテナンス人材を派遣。自社研修施設を保有。", "salary": "300万～400万円（賞与年2回別途）", "content": "工場内のロボット・機械の点検・部品交換・メンテナンス・検査（設備保全・サービスエンジニア）", "persona": "18～39歳・高卒以上・全国転勤可能な方", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_29.png"}, {"company": "株式会社ホープハウスシステム", "overview": "2001年創業。賃貸マンション・分譲マンションの改修工事・リフォーム・大規模修繕を手掛ける施工管理会社。東京・福岡に拠点。", "salary": "350万～420万円（賞与年2回別途）", "content": "集合住宅（賃貸・分譲マンション）の改修工事における施工管理（積算・見積・職人手配・工程管理・安全管理等）", "persona": "20～35歳・高卒以上・自動車免許必須・施工管理経験必須", "mikeiken": "業種未経験可・施工管理経験必須", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年6月5日 11_02_10 (4).png"}, {"company": "株式会社リプライス", "overview": "1996年創業・東証プライム上場。中古戸建住宅の仕入れ・リフォーム・販売を一気通貫で手掛ける再生住宅事業会社。広島（中国支店）での募集。", "salary": "400万～500万円（賞与年2回）", "content": "中古戸建住宅の仕入れ・リフォーム企画・仲介会社への販売提案（BtoB営業・チーム体制）", "persona": "24～38歳・高卒以上・自動車免許必須・法人／個人問わず提案・折衝経験のある方", "mikeiken": "可", "tags": ["未経験歓迎"], "img": "images/ChatGPT Image 2026年5月25日 19_45_34.png"}];
+(function(){
+  var list=document.getElementById('pickList'); if(!list) return;
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  list.innerHTML = JOB_DATA.map(function(d,i){
+    var tags=(d.tags||[]).map(function(t){return '<span class="job3-tag">'+esc(t)+'</span>';}).join('');
+    return '<article class="job3-card" data-tags="job" data-jobindex="'+i+'">'
+      +'<div class="job3-top"><div class="job3-gallery"><img class="job3-main" src="'+esc(d.img)+'" alt="'+esc(d.company)+'"></div>'
+      +'<div class="job3-info"><h3 class="job3-title">'+esc(d.content)+'</h3>'
+      +'<dl class="job3-spec">'
+      +'<div class="job3-row"><dt>会社名</dt><dd class="job3-company">'+esc(d.company)+'</dd></div>'
+      +'<div class="job3-row"><dt>仕事内容</dt><dd>'+esc(d.content)+'</dd></div>'
+      +'<div class="job3-row"><dt>未経験</dt><dd>'+esc(d.mikeiken)+'</dd></div>'
+      +'<div class="job3-row"><dt>想定年収</dt><dd class="job3-salary"><span class="job3-salary-num">'+esc(d.salary)+'</span></dd></div>'
+      +'</dl></div></div>'
+      +'<div class="job3-tags">'+tags+'</div>'
+      +'<div class="job3-foot"><a class="job3-btn job3-btn--dark" href="#contact">求人の詳細</a></div>'
+      +'</article>';
+  }).join('');
+})();
+</script>
+
+<script>
 // === ピックアップ求人 絞り込み（絞り込むと該当求人をモザイク化→会員登録誘導） ===
 (function () {
   const chips    = document.querySelectorAll('.pick-chip');
@@ -4169,7 +3968,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   function openModal(card) {
     const company = (card.querySelector('.job3-company') || {}).textContent || '';
-    const data    = JOBS[company.trim()] || {};
+    const data    = (window.JOB_DATA && window.JOB_DATA[card.dataset.jobindex]) || {};
     const img     = (card.querySelector('.job3-main') || {}).getAttribute ? card.querySelector('.job3-main').getAttribute('src') : '';
     const title   = (card.querySelector('.job3-title') || {}).textContent || '';
     const salary  = (card.querySelector('.job3-salary-num') || {}).textContent || '';
@@ -4194,7 +3993,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         `<div class="jobd-sec"><dt>仕事内容</dt><dd>${esc(data.content || '※詳細は面談でご案内します。')}</dd></div>` +
         `<div class="jobd-sec"><dt>向いている人物像</dt><dd>${esc(data.persona || '※詳細は面談でご案内します。')}</dd></div>` +
         `<div class="jobd-sec"><dt>未経験可否</dt><dd>${esc(data.mikeiken || '※詳細は面談でご案内します。')}</dd></div>` +
-        `<div class="jobd-sec"><dt>キャリアアップイメージ</dt><dd>${esc(data.career || '※詳細は面談でご案内します。')}</dd></div>` +
       `</dl>` +
       `<div class="jobd-formwrap" id="jobdForm">` +
         `<div class="jobd-form-head">この求人に問い合わせてみる</div>` +
